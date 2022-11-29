@@ -9,7 +9,6 @@ public class NodoCliente {
     public NodoCliente(Cliente dato) {
         this.dato = dato;
     }
-
     public Cliente getDato() {
         return dato;
     }

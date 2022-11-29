@@ -4,17 +4,15 @@
  */
 package grupo7.rentacar;
 
-/**
- *
- * @author Yoselyn Suarez Molina
- */
+import grupo7.rentacar.Cliente.ListaCliente;
+import grupo7.rentacar.Cliente.Cliente;
 public class Grupo7RentACar {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
     }
     
 }

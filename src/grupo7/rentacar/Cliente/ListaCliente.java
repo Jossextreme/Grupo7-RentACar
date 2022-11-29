@@ -45,8 +45,7 @@ public class ListaCliente {
         if (cabeza != null) { //Si hay algo en la lista buscaré
         if (cedula >= cabeza.getDato().getCedula()
             && cedula <= ultimo.getDato().getCedula()) {
-                
-                if (cabeza.getDato().getCedula() == cedula) {
+            if (cabeza.getDato().getCedula() == cedula) {
                 cabeza = cabeza.getNext(); 
       //Actualizo la cabeza, la paso al siguiente porque se va eliminar ese nodo
                 ultimo.setNext(cabeza);
@@ -63,9 +62,9 @@ public class ListaCliente {
                     //Por si hay que eliminar el utlimo
                     if (aux.getNext() == ultimo) { 
                         ultimo = aux; //Se actualiza el utlimo
-                    }
+                    }    
                     //cambio las referencias
-                    aux. setNext (aux.getNext () .getNext ()); 
+                    aux.setNext (aux.getNext().getNext()); 
                 }
               }
            }
