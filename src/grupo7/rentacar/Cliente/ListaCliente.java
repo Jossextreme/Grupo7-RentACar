@@ -71,17 +71,37 @@ public class ListaCliente {
         }
     }
     
-    public void Modificar(){
+    public void Modificar(Cliente c){
         
     }
+    /* El método consultar recibe como parámetro un número entero que 
+     * corresponde a la cédula del cliente que se desea consultar, así que 
+     * recorre la lista buscando cuál nodo tiene un cliente con esa cédula y
+     * al encontrarlo devuelve un String con la información del cliente. En 
+     * caso de no encontrarlo devuelve un String con el mensaje "El cliente no 
+     * se ha encontrado"
+    */
     public String Consultar(int cedula){
         String respuesta = "";
+        boolean esta = false;
         if(cabeza != null){//Se verifica que la lista tenga nodos
             NodoCliente aux = cabeza;//Se crea un nodo para índice
             if(aux.getDato().getCedula()!=cedula){
                 aux = aux.getNext();
             }else{
                 respuesta += "El nombre del cliente es: "+aux.getDato().getNombre()+" "+aux.getDato().getApellidos()+"\n"+"Su fecha de naciemiento es: "+aux.getDato().getFechaNaci()+"\n"+"Su correo es: "+aux.getDato().getCorreoElec()+"\n"+"Su categoría es: "+aux.getDato().getCategoria();
+            }
+            while(aux != cabeza){
+                if(aux.getDato().getCedula()==cedula){
+                    respuesta += "El nombre del cliente es: "+aux.getDato().getNombre()+" "+aux.getDato().getApellidos()+"\n"+"Su fecha de naciemiento es: "+aux.getDato().getFechaNaci()+"\n"+"Su correo es: "+aux.getDato().getCorreoElec()+"\n"+"Su categoría es: "+aux.getDato().getCategoria();
+                    esta = true;
+                    aux = cabeza;
+                }else{
+                    aux = aux.getNext();
+                }
+            }
+            if(esta == false){
+                respuesta = "El cliente no se ha encontrado";
             }
         }
         return respuesta;
