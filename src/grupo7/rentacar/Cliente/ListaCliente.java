@@ -71,8 +71,50 @@ public class ListaCliente {
         }
     }
     
-    public void Modificar(Cliente c){
-        
+    public String Modificar(Cliente c){
+        String respuesta = "";
+        boolean esta = false;
+        if(cabeza != null){//Se verifica que la lista tenga nodos
+            NodoCliente aux = cabeza;//Se crea un nodo para índice
+            if(aux.getDato().getCedula()!=c.getCedula()){
+                aux = aux.getNext();
+            }else{
+                NodoCliente temp = new NodoCliente(c);
+                temp.setNext(aux.getNext());
+                temp.setBack(aux.getBack());
+                cabeza = temp;
+                aux = cabeza;
+                esta = true;
+            }
+            while(aux != cabeza){
+                if((aux.getDato().getCedula()==c.getCedula())&& aux != ultimo){
+                    NodoCliente temp = new NodoCliente(c);
+                    temp.setNext(aux.getNext());
+                    temp.setBack(aux.getBack());
+                    aux.setNext(null);
+                    aux.setBack(null);
+                    esta = true;
+                    aux = cabeza;
+                }else if((aux.getDato().getCedula()==c.getCedula())&& aux == ultimo){
+                    NodoCliente temp = new NodoCliente(c);
+                    temp.setNext(aux.getNext());
+                    temp.setBack(aux.getBack());
+                    ultimo = temp;
+                    aux.setNext(null);
+                    aux.setBack(null);
+                    esta = true;
+                    aux = cabeza;
+                }else{
+                    aux = aux.getNext();
+                }
+            }
+            if(esta == false){
+                respuesta = "El cliente no se ha encontrado";
+            }else{
+                respuesta = "El cliente fue correctamente modificado";
+            }
+        }
+        return respuesta;
     }
     /* El método consultar recibe como parámetro un número entero que 
      * corresponde a la cédula del cliente que se desea consultar, así que 
