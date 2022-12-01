@@ -70,4 +70,20 @@ public class ListaCliente {
            }
         }
     }
+    
+    public void Modificar(){
+        
+    }
+    public String Consultar(int cedula){
+        String respuesta = "";
+        if(cabeza != null){//Se verifica que la lista tenga nodos
+            NodoCliente aux = cabeza;//Se crea un nodo para índice
+            if(aux.getDato().getCedula()!=cedula){
+                aux = aux.getNext();
+            }else{
+                respuesta += "El nombre del cliente es: "+aux.getDato().getNombre()+" "+aux.getDato().getApellidos()+"\n"+"Su fecha de naciemiento es: "+aux.getDato().getFechaNaci()+"\n"+"Su correo es: "+aux.getDato().getCorreoElec()+"\n"+"Su categoría es: "+aux.getDato().getCategoria();
+            }
+        }
+        return respuesta;
+    }
 }
