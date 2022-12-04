@@ -150,11 +150,21 @@ public class ListaVehiculo {
             if(!aux.getDato().getPlaca().equals(placa)){
                 aux = aux.getNext();
             }else{
-                respuesta += "El vehiculo es modelo: "+aux.getDato().getModelo()+"del año: "+aux.getDato().getAnno()+"\n"+"Con un cilindraje "+aux.getDato().getCilindrada()+"\n"+"El combustible que utiliza es: "+aux.getDato().getCombustible()+"\n"+"Su estado es: "+aux.getDato().getEstado();
+                respuesta += "El vehiculo es modelo: "+aux.getDato().getModelo()+
+                        "del año: "+aux.getDato().getAnno()+
+                        "\n"+"Con un cilindraje "+aux.getDato().getCilindrada()+
+                        "\n"+"El combustible que utiliza es: "
+                        +aux.getDato().getCombustible()+
+                        "\n"+"Su estado es: "+aux.getDato().getEstado();
             }
             while(aux != cabeza){
                 if(aux.getDato().getPlaca().equals(placa)){
-                    respuesta += "El vehiculo es modelo: "+aux.getDato().getModelo()+"del año: "+aux.getDato().getAnno()+"\n"+"Con un cilindraje "+aux.getDato().getCilindrada()+"\n"+"El combustible que utiliza es: "+aux.getDato().getCombustible()+"\n"+"Su estado es: "+aux.getDato().getEstado();
+                    respuesta += "El vehiculo es modelo: "+aux.getDato().getModelo()+
+                            "del año: "+aux.getDato().getAnno()+
+                            "\n"+"Con un cilindraje "+aux.getDato().getCilindrada()+
+                            "\n"+"El combustible que utiliza es: "
+                            +aux.getDato().getCombustible()+
+                            "\n"+"Su estado es: "+aux.getDato().getEstado();
                     esta = true;
                     aux = cabeza;
                 }else{
