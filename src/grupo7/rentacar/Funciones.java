@@ -14,7 +14,10 @@ import grupo7.rentacar.Extras.ListaExtras;
  * @author geova
  */
 public class Funciones {
-    private static ColaAlquiler alquileres;
+    //
+    //      Cambiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar el public
+    //
+    public static ColaAlquiler alquileres = new ColaAlquiler();
     public static void solicitarAlquiler(
             Cliente cliente,
             int cantidadDias, 

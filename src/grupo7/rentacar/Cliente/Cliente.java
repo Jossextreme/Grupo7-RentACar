@@ -1,4 +1,3 @@
-
 package grupo7.rentacar.Cliente;
 
 public class Cliente {
@@ -8,6 +7,7 @@ public class Cliente {
     private String correoElec;
     private String fechaNaci;
     private Categoria categoria;
+    private int categoriaLevel;
 
     public Cliente(String nombre, String apellidos, int cedula, String correoElec, String fechaNaci, Categoria categoria) {
         this.nombre = nombre;
@@ -16,6 +16,7 @@ public class Cliente {
         this.correoElec = correoElec;
         this.fechaNaci = fechaNaci;
         this.categoria = categoria;
+        setCategoriaLevel();
     }
     public void subirCategoria(){
         switch(categoria.name()){
@@ -30,6 +31,7 @@ public class Cliente {
                 break;
                 
         }
+        setCategoriaLevel();
     }
     public void bajarCategoria(){
         switch(categoria.name()){
@@ -44,8 +46,26 @@ public class Cliente {
                 break;
                 
         }
+        setCategoriaLevel();
     }
 
+    private void setCategoriaLevel(){
+        switch(categoria.name()){
+            case "Bronce":
+                categoriaLevel =0;
+                break;
+            case "Plata":
+                categoriaLevel =1;
+                break;
+            case "Oro":
+                categoriaLevel =2;
+                break;
+            case "Zafiro":
+                categoriaLevel =3;
+                break;
+        }
+    }
+    
     public String getNombre() {
         return nombre;
     }
@@ -92,6 +112,9 @@ public class Cliente {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+        setCategoriaLevel();
     }
-    
+    public int getCategorialevel(){
+        return categoriaLevel;
+    }
 }

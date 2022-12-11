@@ -17,9 +17,28 @@ public class ColaAlquiler {
         if(frente == null){  // significa que la cola esta vacia
             frente = a;
             ultimo = a;
-        } else{
-            ultimo.setAtras(a);
-            ultimo=a;
+        } else if (
+                alquiler.getC().getCategorialevel() 
+                > frente.getDato().getC().getCategorialevel()
+                ) 
+        {
+            a.setAtras(frente);
+            frente = a;
+        }
+        else{
+            NodoAlquiler aux = frente;
+            while (
+                    aux.getAtras() != null
+                    && alquiler.getC().getCategorialevel() 
+                    <= aux.getAtras().getDato().getC().getCategorialevel()
+                    ) 
+            {
+                aux = aux.getAtras();
+            }
+            a.setAtras(aux.getAtras());
+            aux.setAtras(a);
+            
+            
         }
     }
     
@@ -34,7 +53,7 @@ public class ColaAlquiler {
     
     @Override
     public String toString(){
-        String s=" -= Cola de Clientes =- ";
+        String s="\n\n\n\n -= Cola de Alquileres =- ";
         NodoAlquiler aux=frente;
         while(aux!=null){
             s+=aux;

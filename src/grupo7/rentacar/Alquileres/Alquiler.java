@@ -103,5 +103,16 @@ public class Alquiler {
     public void setEstado(EstadoAlquiler estado) {
         this.estado = estado;
     }
-    
+    @Override
+    public String toString() {
+        return "Alquiler{" +
+                "Persona="+getC().getNombre()+" "+getC().getApellidos()+
+                ", Categoría="+getC().getCategoria()+
+                ", Cantidad Minima Pasajeros="+preferenciaPasajeros+
+                ", Preferencia marca ="+preferenciaMarca+
+                ", Preferencia Modelo="+preferenciaModelo+
+                ", Extras="+extras+
+                ", Estado="+estado+
+                '}';
+    }
 }
