@@ -37,13 +37,13 @@ public class ListaVehiculo {
                         combustibles[0] 
         );
         int pasajeros = Integer.parseInt(JOptionPane.showInputDialog(null, "Inserte la cantidad de pasajeros del vehículo", "Registrar: Pasajeros", 1));
-        double precio = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el precio por día que tiene el vehículo", "Registrar: Precio", 1));
+        double precio = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el precio por día que tiene el vehículo", "Registrar: Precio", 1));*/
         
         Vehiculo vehiculo = new Vehiculo(combustible,placa,marca,modelo,anno,color,cilindrada,pasajeros,precio);
-        */
+        
                 
         if(cabeza==null){ 
-            cabeza = new NodoVehiculo(vehiculo v);
+            cabeza = new NodoVehiculo(vehiculo);
             ultimo = cabeza;
             ultimo.setNext(cabeza);
             cabeza.setBack(ultimo);
