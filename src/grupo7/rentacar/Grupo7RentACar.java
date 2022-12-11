@@ -6,13 +6,14 @@ package grupo7.rentacar;
 
 import grupo7.rentacar.Cliente.ListaCliente;
 import grupo7.rentacar.Cliente.Cliente;
+import grupo7.rentacar.JFrameInterfaz.JFrameInterfaz;
 public class Grupo7RentACar {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        JFrameInterfaz.main(args);
     }
     
 }

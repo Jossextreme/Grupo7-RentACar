@@ -17,6 +17,34 @@ public class Cliente {
         this.fechaNaci = fechaNaci;
         this.categoria = categoria;
     }
+    public void subirCategoria(){
+        switch(categoria.name()){
+            case "Bronce":
+                categoria = Categoria.Plata;
+                break;
+            case "Plata":
+                categoria = Categoria.Oro;
+                break;
+            case "Oro":
+                categoria = Categoria.Zafiro;
+                break;
+                
+        }
+    }
+    public void bajarCategoria(){
+        switch(categoria.name()){
+            case "Plata":
+                categoria = Categoria.Bronce;
+                break;
+            case "Oro":
+                categoria = Categoria.Plata;
+                break;
+            case "Zafiro":
+                categoria = Categoria.Oro;
+                break;
+                
+        }
+    }
 
     public String getNombre() {
         return nombre;
