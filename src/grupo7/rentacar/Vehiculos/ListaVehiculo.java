@@ -14,7 +14,7 @@ public class ListaVehiculo {
     private NodoVehiculo cabeza;
     private NodoVehiculo ultimo;
     
-    public void registrar(){
+    public void registrar(Combustibles combustible, String placa, String marca, String modelo, int anno, String color, int cilindrada, int pasajeros, double precio){
         
         //Parte de donde se solicita al usuario la info
         /*
