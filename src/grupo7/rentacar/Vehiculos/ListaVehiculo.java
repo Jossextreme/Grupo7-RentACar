@@ -177,5 +177,34 @@ public class ListaVehiculo {
         }
         return respuesta;
     }
+    public String Listar(){
+       NodoVehiculo aux = cabeza;
+        String s="Lista de vehículos: "+"\n";
+        if (aux != null){
+            s+= "Marca: "+aux.getDato().getMarca()+"\n"+"Modelo: "+
+                    aux.getDato().getModelo()+"\n"+"Placa: "+
+                    aux.getDato().getPlaca()+"\n"+"Año: "+
+                    aux.getDato().getAnno()+"Cilindraje: "+
+                    aux.getDato().getCilindrada()+"Pasajeros: "+
+                    aux.getDato().getPasajeros()+"Estado: "+
+                    aux.getDato().getEstado()+
+                    "---------------------------------------------------------";
+            aux=aux.getNext();
+            while(aux != cabeza){ //se debe detener la cabeza por ser cirucular
+                s+= "Marca: "+aux.getDato().getMarca()+"\n"+"Modelo: "+
+                    aux.getDato().getModelo()+"\n"+"Placa: "+
+                    aux.getDato().getPlaca()+"\n"+"Año: "+
+                    aux.getDato().getAnno()+"Cilindraje: "+
+                    aux.getDato().getCilindrada()+"Pasajeros: "+
+                    aux.getDato().getPasajeros()+"Estado: "+
+                    aux.getDato().getEstado()+
+                    "---------------------------------------------------------";
+            aux=aux.getNext();
+           }
+        } else{
+            s+="vacia";
+        }
+        return s;
+    }
    
 }

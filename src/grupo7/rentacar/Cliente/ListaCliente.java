@@ -155,22 +155,31 @@ public class ListaCliente {
         }
         return respuesta;
     }
-//@Override
-//    public String toString(){
-//        NodoCliente aux = cabeza;
-//        String s="Lista: ";
-//        if (aux != null){
-//            s+=aux+", ";
-//            aux=aux.getNext();
-//            while(aux != cabeza){ //se debe detener la cabeza por ser cirucular
-//                s+=aux+", ";
-//                aux=aux.getNext();
-//            }
-//        } else{
-//            s+="vacia";
-//        }
-//        return s;
-//    }
+    public String Listar(){
+       NodoCliente aux = cabeza;
+        String s="Lista de clientes: "+"\n";
+        if (aux != null){
+            s+= "Nombre: "+aux.getDato().getNombre()+" "+
+                    aux.getDato().getApellidos()+"\n"+"Cédula: "+
+                    aux.getDato().getCedula()+"\n"+"Correo: "+
+                    aux.getDato().getCorreoElec()+"\n"+"Categoría: "+
+                    aux.getDato().getCategoria()+
+                    "---------------------------------------------------------";
+            aux=aux.getNext();
+            while(aux != cabeza){ //se debe detener la cabeza por ser cirucular
+                s+= "Nombre: "+aux.getDato().getNombre()+" "+
+                    aux.getDato().getApellidos()+"\n"+"Cédula: "+
+                    aux.getDato().getCedula()+"\n"+"Correo: "+
+                    aux.getDato().getCorreoElec()+"\n"+"Categoría: "+
+                    aux.getDato().getCategoria()+
+                    "---------------------------------------------------------";
+                aux=aux.getNext();
+           }
+        } else{
+            s+="vacia";
+        }
+        return s;
+    }
 
 
 }
