@@ -18,6 +18,9 @@ public class Cliente {
         this.categoria = categoria;
         setCategoriaLevel();
     }
+    public Cliente(){
+    
+}
     public void subirCategoria(){
         switch(categoria.name()){
             case "Bronce":

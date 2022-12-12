@@ -23,7 +23,8 @@ public class Vehiculo {
     private int pasajeros;
     private double precio;
 
-    public Vehiculo(Combustibles combustible, String placa, String marca, String modelo, int anno, String color, int cilindrada, int pasajeros, double precio) {
+    public Vehiculo(Combustibles combustible, String placa, String marca, 
+String modelo, int anno, String color, int cilindrada, int pasajeros, double precio) {
         this.combustible = combustible;
         this.placa = placa;
         this.marca = marca;
@@ -37,7 +38,9 @@ public class Vehiculo {
         //Estado por defauls sería Disponible
         estado = EstadoVehiculo.Disponible;
     }
-
+    public Vehiculo(){
+        
+    }
     
     public EstadoVehiculo getEstado() {
         return estado;

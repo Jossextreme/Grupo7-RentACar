@@ -131,11 +131,18 @@ public class ListaCliente {
             if(aux.getDato().getCedula()!=cedula){
                 aux = aux.getNext();
             }else{
-                respuesta += "El nombre del cliente es: "+aux.getDato().getNombre()+" "+aux.getDato().getApellidos()+"\n"+"Su fecha de naciemiento es: "+aux.getDato().getFechaNaci()+"\n"+"Su correo es: "+aux.getDato().getCorreoElec()+"\n"+"Su categoría es: "+aux.getDato().getCategoria();
+                respuesta += "El nombre del cliente es: "+aux.getDato().getNombre()
+                +" "+"\n"+"Su fecha de naciemiento es: "+aux.getDato().getFechaNaci()
+                +"\n"+"Su correo es: "+aux.getDato().getCorreoElec()+"\n"
+                +"Su categoría es: "+aux.getDato().getCategoria();
             }
             while(aux != cabeza){
                 if(aux.getDato().getCedula()==cedula){
-                    respuesta += "El nombre del cliente es: "+aux.getDato().getNombre()+" "+aux.getDato().getApellidos()+"\n"+"Su fecha de naciemiento es: "+aux.getDato().getFechaNaci()+"\n"+"Su correo es: "+aux.getDato().getCorreoElec()+"\n"+"Su categoría es: "+aux.getDato().getCategoria();
+                respuesta += "El nombre del cliente es: "
+                 +aux.getDato().getNombre()+" "+"Su fecha de naciemiento es: "
+                 +aux.getDato().getFechaNaci()+"\n"+"Su correo es: "
+                 +aux.getDato().getCorreoElec()+"\n"
+                 +"Su categoría es: "+aux.getDato().getCategoria();
                     esta = true;
                     aux = cabeza;
                 }else{
@@ -148,4 +155,22 @@ public class ListaCliente {
         }
         return respuesta;
     }
+//@Override
+//    public String toString(){
+//        NodoCliente aux = cabeza;
+//        String s="Lista: ";
+//        if (aux != null){
+//            s+=aux+", ";
+//            aux=aux.getNext();
+//            while(aux != cabeza){ //se debe detener la cabeza por ser cirucular
+//                s+=aux+", ";
+//                aux=aux.getNext();
+//            }
+//        } else{
+//            s+="vacia";
+//        }
+//        return s;
+//    }
+
+
 }
