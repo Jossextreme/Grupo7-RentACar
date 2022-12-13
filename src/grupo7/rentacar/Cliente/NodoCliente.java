@@ -9,12 +9,6 @@ public class NodoCliente {
     public NodoCliente(Cliente dato) {
         this.dato = dato;
     }
-//        @Override
-//    public String toString(){
-//        return "Nodo{"+"Nombre: "+dato.getNombre()+"\n "
-//                + "cedula"+dato.getCedula()+ "\n"
-//                + "categoria: " + dato.getCategoria();
-//    }
     //Prueba
     public Cliente getDato() {
         return dato;
@@ -40,4 +34,8 @@ public class NodoCliente {
         this.back = back;
     }
     
+    @Override
+    public String toString() {
+        return "\n{"+dato+"}";
+    }    
 }

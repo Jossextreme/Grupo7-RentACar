@@ -120,4 +120,15 @@ public class Cliente {
     public int getCategorialevel(){
         return categoriaLevel;
     }
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "Cedula="+cedula+
+                ", Nombre="+nombre+
+                ", Apellidos="+apellidos+
+                ", Correo="+correoElec+
+                ", Cedula="+fechaNaci+
+                ", Categoria="+categoria+
+                '}';
+    }
 }

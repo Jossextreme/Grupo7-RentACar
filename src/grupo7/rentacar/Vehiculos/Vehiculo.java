@@ -121,4 +121,16 @@ String modelo, int anno, String color, int cilindrada, int pasajeros, double pre
     public void setPrecio(double precio) {
         this.precio = precio;
     }
+    @Override
+    public String toString() {
+        return "Vehiculo{" +
+                "Placa="+placa+
+                ", Año="+anno+
+                ", Marca="+marca+
+                ", Modelo="+modelo+
+                ", Color="+color+
+                ", Combustible="+combustible+
+                ", Precio="+precio+
+                '}';
+    }
 }

@@ -14,13 +14,6 @@ public class NodoVehiculo {
     private NodoVehiculo next;
     private NodoVehiculo back;
 
-//    @Override
-//    public String toString(){
-//        return "Nodo{\n"+"Placa: "+dato.getPlaca()+"\n "
-//                + "Modelo"+dato.getModelo()+ "\n"
-//                + "Precio: " + dato.getPrecio();
-//    }
-    //Prueba
     public NodoVehiculo(Vehiculo dato) {
         this.dato = dato;
     }
@@ -49,5 +42,9 @@ public class NodoVehiculo {
         this.back = back;
     }
     
+    @Override
+    public String toString() {
+        return "{"+dato+"}";
+    }
     
 }

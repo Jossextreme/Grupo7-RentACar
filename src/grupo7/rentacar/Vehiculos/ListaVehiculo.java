@@ -14,45 +14,33 @@ public class ListaVehiculo {
     private NodoVehiculo cabeza;
     private NodoVehiculo ultimo;
     
-    public void registrar(Combustibles combustible, String placa, String marca, String modelo, int anno, String color, int cilindrada, int pasajeros, double precio){
+    public void registrar(Vehiculo vehiculo){
         
-        //Parte de donde se solicita al usuario la info
-        /*
-        Combustibles[] combustibles = Combustibles.values(); 
-        
-        String placa = JOptionPane.showInputDialog(null, "Inserte la placa del vehículo", "Registrar: Placa", 1);
-        String marca = JOptionPane.showInputDialog(null, "Inserte la marca del vehículo", "Registrar: Marca", 1);
-        String modelo = JOptionPane.showInputDialog(null, "Inserte el modelo del vehículo", "Registrar: Model", 1);
-        int anno = Integer.parseInt(JOptionPane.showInputDialog(null, "Inserte el año del vehículo", "Registrar: Año", 1));
-        String color = JOptionPane.showInputDialog(null, "Inserte el la marca del vehículo", "Registrar: Placa", 1);
-        int cilindrada = Integer.parseInt(JOptionPane.showInputDialog(null, "Inserte la cantidad de cilindros del vehículo", "Registrar: Cilindrada", 1));
-        Combustibles combustible = 
-                (Combustibles) JOptionPane.showInputDialog(
-                        null, 
-                        "Selecciones el tipo de combustible del vehículo", 
-                        "Registrar: Combustible", 
-                        1, 
-                        null, 
-                        combustibles, 
-                        combustibles[0] 
-        );
-        int pasajeros = Integer.parseInt(JOptionPane.showInputDialog(null, "Inserte la cantidad de pasajeros del vehículo", "Registrar: Pasajeros", 1));
-        double precio = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite el precio por día que tiene el vehículo", "Registrar: Precio", 1));*/
-        
-        Vehiculo vehiculo = new Vehiculo(combustible,placa,marca,modelo,anno,color,cilindrada,pasajeros,precio);
-        
+        NodoVehiculo temp = new NodoVehiculo(vehiculo);
                 
         if(cabeza==null){ 
             cabeza = new NodoVehiculo(vehiculo);
             ultimo = cabeza;
             ultimo.setNext(cabeza);
             cabeza.setBack(ultimo);
-        }else{
+        }else if(vehiculo.getAnno() > cabeza.getDato().getAnno()){
+            temp.setNext(cabeza);
+            temp.setBack(ultimo);
+            cabeza.setBack(temp);
+            ultimo.setNext(temp);
+            cabeza = temp;
+        }else if(ultimo.getDato().getAnno() >=vehiculo.getAnno()){
+            temp.setNext(cabeza);
+            temp.setBack(ultimo);
+            ultimo.setNext(temp);
+            cabeza.setBack(temp);
+            ultimo = temp;
+        }
+        else{
            NodoVehiculo aux = cabeza; 
-           while (aux.getNext().getDato().getAnno() < vehiculo.getAnno()){
+           while (aux.getNext().getDato().getAnno() >= vehiculo.getAnno()){
                aux=aux.getNext();
            }
-           NodoVehiculo temp = new NodoVehiculo(vehiculo);
            temp.setNext(aux.getNext()); 
            temp.setBack(aux); 
            aux.setNext(temp); 
@@ -235,5 +223,21 @@ public class ListaVehiculo {
         }
         return s;
     }
+   @Override
+   public String toString(){
+       NodoVehiculo aux = cabeza;
+        String s = "\n -= Lista de Vehiculos=-";
+        if (aux != null){
+            s+="\n"+aux;
+            aux=aux.getNext();
+            while(aux != cabeza){
+            s+=",\n"+aux;
+                aux=aux.getNext();
+            }
+        } else{
+            s+="vacia";
+        }
+        return s;
+   }
    
 }
