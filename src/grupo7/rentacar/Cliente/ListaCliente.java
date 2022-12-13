@@ -144,17 +144,17 @@ public class ListaCliente {
        NodoCliente aux = cabeza;
         String s="Lista de clientes: "+"\n";
         if (aux != null){
-            s+= "Nombre: "+aux.getDato().getNombre()+" "+
-                    aux.getDato().getApellidos()+"\n"+"Cédula: "+
-                    aux.getDato().getCedula()+"\n"+"Correo: "+
+            s+= "Nombre: "+aux.getDato().getNombre()+"\n"+
+                    "Fecha de Nacimiento: "+aux.getDato().getFechaNaci()+"\n"
+                    +"Cédula: "+aux.getDato().getCedula()+"\n"+"Correo: "+
                     aux.getDato().getCorreoElec()+"\n"+"Categoría: "+
                     aux.getDato().getCategoria()+"\n"+
                     "---------------------------------------------------------"+"\n";
             aux=aux.getNext();
             while(aux != cabeza){ //se debe detener la cabeza por ser cirucular
-                s+= "Nombre: "+aux.getDato().getNombre()+" "+
-                    aux.getDato().getApellidos()+"\n"+"Cédula: "+
-                    aux.getDato().getCedula()+"\n"+"Correo: "+
+                s+= "Nombre: "+aux.getDato().getNombre()+"\n"+
+                    "Fecha de Nacimiento: "+aux.getDato().getFechaNaci()+"\n"
+                    +"Cédula: "+aux.getDato().getCedula()+"\n"+"Correo: "+
                     aux.getDato().getCorreoElec()+"\n"+"Categoría: "+
                     aux.getDato().getCategoria()+"\n"+
                     "---------------------------------------------------------"+"\n";
