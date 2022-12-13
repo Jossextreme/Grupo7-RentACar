@@ -92,7 +92,7 @@ public class ListaVehiculo {
      * se ha encontrado"
     */
         public String Modificar(Vehiculo v){
-        String respuesta = "";
+        /*String respuesta = "";
         boolean esta = false;
         if(cabeza != null){//Se verifica que la lista tenga nodos
             NodoVehiculo aux = cabeza;//Se crea un nodo para índice
@@ -125,6 +125,35 @@ public class ListaVehiculo {
                     esta = true;
                     aux = cabeza;
                 }else{
+                    aux = aux.getNext();
+                }
+            }
+            if(esta == false){
+                respuesta = "El cliente no se ha encontrado";
+            }else{
+                respuesta = "El cliente fue correctamente modificado";
+            }
+        }
+        return respuesta;*/
+        
+        String respuesta = "";
+        boolean esta = false;
+        if(cabeza != null){//Se verifica que la lista tenga nodos
+            NodoVehiculo aux = cabeza;//Se crea un nodo para índice
+            if(aux.getDato().getPlaca()!=v.getPlaca()){
+                aux = aux.getNext();
+            }else{
+                NodoVehiculo temp = new NodoVehiculo(v);
+                cabeza.setDato(v);
+                esta = true;
+            }
+            while(aux != cabeza){
+                if(aux.getDato().getPlaca()==v.getPlaca()){
+                    NodoVehiculo temp = aux;
+                    temp.setDato(v);
+                    esta = true;
+                    aux = cabeza;
+                }else {
                     aux = aux.getNext();
                 }
             }
