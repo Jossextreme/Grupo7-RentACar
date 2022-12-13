@@ -80,31 +80,16 @@ public class ListaCliente {
                 aux = aux.getNext();
             }else{
                 NodoCliente temp = new NodoCliente(c);
-                temp.setNext(aux.getNext());
-                temp.setBack(aux.getBack());
-                cabeza = temp;
-                aux = cabeza;
+                cabeza.setDato(c);
                 esta = true;
             }
             while(aux != cabeza){
-                if((aux.getDato().getCedula()==c.getCedula())&& aux != ultimo){
-                    NodoCliente temp = new NodoCliente(c);
-                    temp.setNext(aux.getNext());
-                    temp.setBack(aux.getBack());
-                    aux.setNext(null);
-                    aux.setBack(null);
+                if(aux.getDato().getCedula()==c.getCedula()){
+                    NodoCliente temp = aux;
+                    temp.setDato(c);
                     esta = true;
                     aux = cabeza;
-                }else if((aux.getDato().getCedula()==c.getCedula())&& aux == ultimo){
-                    NodoCliente temp = new NodoCliente(c);
-                    temp.setNext(aux.getNext());
-                    temp.setBack(aux.getBack());
-                    ultimo = temp;
-                    aux.setNext(null);
-                    aux.setBack(null);
-                    esta = true;
-                    aux = cabeza;
-                }else{
+                }else {
                     aux = aux.getNext();
                 }
             }
@@ -163,16 +148,16 @@ public class ListaCliente {
                     aux.getDato().getApellidos()+"\n"+"Cédula: "+
                     aux.getDato().getCedula()+"\n"+"Correo: "+
                     aux.getDato().getCorreoElec()+"\n"+"Categoría: "+
-                    aux.getDato().getCategoria()+
-                    "---------------------------------------------------------";
+                    aux.getDato().getCategoria()+"\n"+
+                    "---------------------------------------------------------"+"\n";
             aux=aux.getNext();
             while(aux != cabeza){ //se debe detener la cabeza por ser cirucular
                 s+= "Nombre: "+aux.getDato().getNombre()+" "+
                     aux.getDato().getApellidos()+"\n"+"Cédula: "+
                     aux.getDato().getCedula()+"\n"+"Correo: "+
                     aux.getDato().getCorreoElec()+"\n"+"Categoría: "+
-                    aux.getDato().getCategoria()+
-                    "---------------------------------------------------------";
+                    aux.getDato().getCategoria()+"\n"+
+                    "---------------------------------------------------------"+"\n";
                 aux=aux.getNext();
            }
         } else{

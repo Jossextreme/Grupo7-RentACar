@@ -13,12 +13,11 @@ import grupo7.rentacar.Vehiculos.ListaVehiculo;
 import grupo7.rentacar.Vehiculos.Vehiculo;
 import grupo7.rentacar.Enumeraciones.EstadoVehiculo;
 
-
-
 public class JFrameInterfaz extends javax.swing.JFrame {
+
     private ListaCliente clientes = new ListaCliente();
     private ListaVehiculo vehiculos = new ListaVehiculo();
-    
+
     public JFrameInterfaz() {
         initComponents();
 
@@ -527,45 +526,42 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonIngresarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonIngresarClienteActionPerformed
-     String nom = "",fch = "", correo = "";
-     int cedu =0;
-         if(
-                // Verificamos que los datos del cliente no esté vacíos
-                labelCliente.getText().equals("") || 
-                labelCedula.getText().equals("") || 
-                labelFecha.getText().equals("") || 
-                labelCorreo.getText().equals("")
-        ){
+        String nom = "", fch = "", correo = "";
+        int cedu = 0;
+        if ( // Verificamos que los datos del cliente no esté vacíos
+                labelCliente.getText().equals("")
+                || labelCedula.getText().equals("")
+                || labelFecha.getText().equals("")
+                || labelCorreo.getText().equals("")) {
             JOptionPane.showMessageDialog(
-                        null, 
-                        "Error: Datos del cliente faltantes", 
-                        "Error: Cliente", 
-                        0
+                    null,
+                    "Error: Datos del cliente faltantes",
+                    "Error: Cliente",
+                    0
             );
-        }else{
-            
-            try{
-        nom = labelCliente.getText();
-        cedu = Integer.parseInt(labelCedula.getText());
-        fch = labelFecha.getText();
-        correo = labelCorreo.getText();
-        
-        
-        ingresarCliente(nom,fch,cedu,correo,Categoria.Bronce);
-        
-        labelCliente.setText(null);
-        labelCedula.setText(null);
-        labelFecha.setText(null);
-        labelCorreo.setText(null);
-        
-        }catch(Exception ex){
-         JOptionPane.showMessageDialog(null, 
-            "Error: Informacion incompleta", 
-            "Error: Informacion de cliente", 
+        } else {
+
+            try {
+                nom = labelCliente.getText();
+                cedu = Integer.parseInt(labelCedula.getText());
+                fch = labelFecha.getText();
+                correo = labelCorreo.getText();
+
+                ingresarCliente(nom, fch, cedu, correo, Categoria.Bronce);
+
+                labelCliente.setText(null);
+                labelCedula.setText(null);
+                labelFecha.setText(null);
+                labelCorreo.setText(null);
+
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null,
+                        "Error: Informacion incompleta",
+                        "Error: Informacion de cliente",
                         0
-            );
-        }       
-   }
+                );
+            }
+        }
     }//GEN-LAST:event_ButtonIngresarClienteActionPerformed
 
     private void labelCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_labelCorreoActionPerformed
@@ -578,22 +574,20 @@ public class JFrameInterfaz extends javax.swing.JFrame {
 
     private void ButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEliminarActionPerformed
         int eliminar = 0;
-                try{
-         eliminar = Integer.parseInt(labelBuscar.getText());
-         clientes.Eliminar(eliminar);
-        }
-        catch(Exception ex){
-                        JOptionPane.showMessageDialog(
-                        null, 
-                        "Error: Informacion incompleta", 
-                        "Error: Informacion de cliente", 
-                        0
+        try {
+            eliminar = Integer.parseInt(labelBuscar.getText());
+            clientes.Eliminar(eliminar);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Error: Informacion incompleta",
+                    "Error: Informacion de cliente",
+                    0
             );
         }
 
 //INCOMPLETO
 
-        
     }//GEN-LAST:event_ButtonEliminarActionPerformed
 
     private void labelBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_labelBuscarActionPerformed
@@ -602,7 +596,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
 
     private void ButtonBuscarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarVehiculoActionPerformed
         TextAreaVehiculos.setText(vehiculos.toString());
-        
+
     }//GEN-LAST:event_ButtonBuscarVehiculoActionPerformed
 
     private void labelMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_labelMarcaActionPerformed
@@ -638,67 +632,63 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_PrecioActionPerformed
 
     private void ButtonIngresarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonIngresarVehiculoActionPerformed
-        String mod = "",col = "", plc = "", mar = "";
+        String mod = "", col = "", plc = "", mar = "";
         Combustibles comb;
-        int an = 0, np =0, cilin=0;
-        double pre =0;
-        if(
-                // Verificamos que los datos del cliente no esté vacíos
-                labelModelo.getText().equals(" ") || 
-                labelAño.getText().equals("") || 
-                labelCilindrada.getText().equals("") || 
-                labelColor.getText().equals("") ||
-                labelNumPasajeros.getText().equals("") ||
-                labelPlaca.getText().equals("") ||
-                Precio.getText().equals("") ||
-                labelMarca.getText().equals("") 
-        ){
+        int an = 0, np = 0, cilin = 0;
+        double pre = 0;
+        if ( // Verificamos que los datos del cliente no esté vacíos
+                labelModelo.getText().equals(" ")
+                || labelAño.getText().equals("")
+                || labelCilindrada.getText().equals("")
+                || labelColor.getText().equals("")
+                || labelNumPasajeros.getText().equals("")
+                || labelPlaca.getText().equals("")
+                || Precio.getText().equals("")
+                || labelMarca.getText().equals("")) {
             JOptionPane.showMessageDialog(
-                        null, 
-                        "Error: Datos del cliente faltantes", 
-                        "Error: Cliente", 
-                        0
+                    null,
+                    "Error: Datos del cliente faltantes",
+                    "Error: Cliente",
+                    0
             );
-        }else{
-            try{
-            
-            mod = labelModelo.getText();
-            cilin = Integer.parseInt(labelCilindrada.getText());
-            col = labelColor.getText();
-            plc = labelPlaca.getText();
-            mar = labelMarca.getText();
-            
-            
-            an = Integer.parseInt(labelAño.getText());
-            np = Integer.parseInt(labelNumPasajeros.getText());
-            pre = Double.parseDouble(Precio.getText());
-            
-            
-           ingresarVehiculo(plc, mar, mod, an, col,cilin, np, pre);
-           
-           labelAño.setText(null);
-           labelCilindrada.setText(null);
-           labelMarca.setText(null);
-           labelModelo.setText(null);
-           labelPlaca.setText(null);
-           labelNumPasajeros.setText(null);
-           labelColor.setText(null);
-           Precio.setText(null);
-            
-            }catch(Exception ex){
+        } else {
+            try {
+
+                mod = labelModelo.getText();
+                cilin = Integer.parseInt(labelCilindrada.getText());
+                col = labelColor.getText();
+                plc = labelPlaca.getText();
+                mar = labelMarca.getText();
+
+                an = Integer.parseInt(labelAño.getText());
+                np = Integer.parseInt(labelNumPasajeros.getText());
+                pre = Double.parseDouble(Precio.getText());
+
+                ingresarVehiculo(plc, mar, mod, an, col, cilin, np, pre);
+
+                labelAño.setText(null);
+                labelCilindrada.setText(null);
+                labelMarca.setText(null);
+                labelModelo.setText(null);
+                labelPlaca.setText(null);
+                labelNumPasajeros.setText(null);
+                labelColor.setText(null);
+                Precio.setText(null);
+
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(
-                        null, 
-                        "Error: Informacion incompleta", 
-                        "Error: Informacion de vehiculo", 
+                        null,
+                        "Error: Informacion incompleta",
+                        "Error: Informacion de vehiculo",
                         0
-            );
-            }      
-        }       
+                );
+            }
+        }
     }//GEN-LAST:event_ButtonIngresarVehiculoActionPerformed
 
     private void ButtonBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarClienteActionPerformed
-    TextAreaBuscar.setText(clientes.toString());    
-        
+        TextAreaBuscar.setText(clientes.toString());
+
     }//GEN-LAST:event_ButtonBuscarClienteActionPerformed
 
     private void BuscarPlacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarPlacaActionPerformed
@@ -706,41 +696,47 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BuscarPlacaActionPerformed
 
     private void ModificarClienteBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarClienteBotonActionPerformed
-        String nom = "",fch = "", correo = "";
-        int cedu =0;
-        if(
-            // Verificamos que los datos del cliente no esté vacíos
-            ModificarCorreo.getText().equals("") ||
-            ModificarNacimiento.getText().equals("") ||
-            ModificarCedula.getText().equals("") ||
-            ModificarNombre.getText().equals("")
-        ){
+        String nom = "", fch = "", correo = "";
+        int cedu = 0;
+        if ( // Verificamos que los datos del cliente no esté vacíos
+                ModificarCorreo.getText().equals("")
+                || ModificarNacimiento.getText().equals("")
+                || ModificarCedula.getText().equals("")
+                || ModificarNombre.getText().equals("")) {
             JOptionPane.showMessageDialog(
-                null,
-                "Error: Datos del cliente faltantes",
-                "Error: Cliente",
-                0
+                    null,
+                    "Error: Datos del cliente faltantes",
+                    "Error: Cliente",
+                    0
             );
-        }else{
+        } else {
 
-            try{
-                nom = ModificarCorreo.getText();
+            try {
+                nom = ModificarNombre.getText();
                 cedu = Integer.parseInt(ModificarCedula.getText());
                 fch = ModificarNacimiento.getText();
                 correo = ModificarCorreo.getText();
 
-                ingresarCliente(nom,fch,cedu,correo,Categoria.Bronce);
+                Cliente clienteN = new Cliente();
+
+                clienteN.setNombre(nom);
+                clienteN.setFechaNaci(fch);
+                clienteN.setCedula(cedu);
+                clienteN.setCorreoElec(correo);
+                
+                clientes.Modificar(clienteN);
+                //ingresarCliente(nom, fch, cedu, correo, Categoria.Bronce);
 
                 ModificarCorreo.setText(null);
                 ModificarNacimiento.setText(null);
                 ModificarCedula.setText(null);
                 ModificarNombre.setText(null);
 
-            }catch(Exception ex){
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null,
-                    "Error: Informacion incompleta",
-                    "Error: Informacion de cliente",
-                    0
+                        "Error: Informacion incompleta",
+                        "Error: Informacion de cliente",
+                        0
                 );
             }
         }
@@ -753,26 +749,27 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     private void ModificarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarNombreActionPerformed
 
     }//GEN-LAST:event_ModificarNombreActionPerformed
- 
-    public void ingresarCliente(String nombre, String fecha, int cedula, 
-            String correo, Categoria categoria){     
+
+    public void ingresarCliente(String nombre, String fecha, int cedula,
+            String correo, Categoria categoria) {
         Cliente clienteN = new Cliente();
-        
+
         clienteN.setNombre(nombre);
         clienteN.setFechaNaci(fecha);
         clienteN.setCedula(cedula);
         clienteN.setCorreoElec(correo);
         clienteN.setCategoria(categoria);
 
-        this.clientes.Insertar(clienteN);     
-}
-    
-    public void ingresarVehiculo(String placa, String marca, 
-    String modelo, int anno, String color, int cilindrada, 
-    int pasajeros, double precio){
-     
+        this.clientes.Insertar(clienteN);
+        JOptionPane.showMessageDialog(null, clientes.Listar());
+    }
+
+    public void ingresarVehiculo(String placa, String marca,
+            String modelo, int anno, String color, int cilindrada,
+            int pasajeros, double precio) {
+
         Vehiculo vehiculoN = new Vehiculo();
-        
+
         vehiculoN.setPlaca(placa);
         vehiculoN.setMarca(marca);
         vehiculoN.setModelo(modelo);
@@ -781,13 +778,10 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         vehiculoN.setCilindrada(cilindrada);
         vehiculoN.setPasajeros(pasajeros);
         vehiculoN.setPrecio(precio);
-        
-        this.vehiculos.registrar(vehiculoN);
-        
+
+        //this.vehiculos.registrar(vehiculoN);
     }
-    
-    
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
