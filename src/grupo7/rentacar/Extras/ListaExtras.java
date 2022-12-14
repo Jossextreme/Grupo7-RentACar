@@ -30,7 +30,7 @@ cámara de visión trasera
            NodoExtras aux = cabeza;
            while (aux.getNext() != null &&
                    aux.getNext().getDato().getId()
-                   <p.getId()){
+                   <e.getId()){
                aux=aux.getNext();
            }
            NodoExtras temp = new NodoExtras(e);
@@ -38,6 +38,50 @@ cámara de visión trasera
            aux.setNext(temp);
         } 
     }
+    
+    public boolean existe (int id){
+        boolean esta = false;
+        if (cabeza != null){
+            NodoExtras aux = cabeza;
+            while (aux != null && aux.getDato().getId() < id){
+                aux = aux.getNext () ;
+            }
+            esta = (aux != null && aux.getDato().getId()== id);
+        }
+
+        return esta;
+    }
+    
+    public void elimina (int id) {
+        if (cabeza != null) { 
+            if (cabeza.getDato().getId() == id) 
+            {
+                cabeza = cabeza.getNext();
+            } 
+            else {
+                NodoExtras aux = cabeza; 
+                while (aux. getNext () != null &&
+                    aux.getNext () .getDato () .getId() < id) {
+                    aux = aux.getNext () ;
+                }
+                if (aux.getNext () != null &&
+                aux.getNext () .getDato () .getId () == id) {
+                    aux. setNext (aux.getNext () .getNext ()); //cambio las referencias
+                }
+            }
+        }
+    }
+    
+    public String Listar(){
+        String respuesta = "Las extras son las siguientes: "+"\n";
+        NodoExtras aux = cabeza;
+        while(aux.getNext()!= null){
+            respuesta += "- "+aux.getDato().getNombre()+"\n";
+            aux = aux.getNext();
+        }
+        return respuesta;
+    }
+    
     @Override
     public String toString(){
         return "EXTRAS";
