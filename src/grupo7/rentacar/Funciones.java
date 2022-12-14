@@ -67,6 +67,9 @@ public class Funciones {
     public Cliente buscarCliente(int cedula){
         return clientes.Consultar(cedula);
     }
+    public void modificarCliente(Cliente cliente){
+        clientes.Modificar(cliente);
+    }
     
     //
     //      Funciones Vehículo
@@ -88,6 +91,12 @@ public class Funciones {
         vehiculoN.setEstado(EstadoVehiculo.Disponible);
 
         this.vehiculos.registrar(vehiculoN);
+    }
+    public void modificarVehiculo(Vehiculo vehiculo){
+        vehiculos.Modificar(vehiculo);
+    }
+    public Vehiculo buscarVehiculo(String Placa){
+        return vehiculos.Consultar(Placa);
     }
     //
     //      Funciones Alquiler

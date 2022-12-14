@@ -128,7 +128,7 @@ public class ListaVehiculo {
         boolean esta = false;
         if(cabeza != null){//Se verifica que la lista tenga nodos
             NodoVehiculo aux = cabeza;//Se crea un nodo para índice
-            if(aux.getDato().getPlaca()!=v.getPlaca()){
+            if(!aux.getDato().getPlaca().equals(v.getPlaca())){
                 aux = aux.getNext();
             }else{
                 NodoVehiculo temp = new NodoVehiculo(v);
@@ -159,37 +159,28 @@ public class ListaVehiculo {
      * caso de no encontrarlo devuelve un String con el mensaje "El cliente no 
      * se ha encontrado"
     */
-    public String Consultar(String placa){
-        String respuesta = "";
+    public Vehiculo Consultar(String placa){
+        Vehiculo respuesta = null;
         boolean esta = false;
-        if(cabeza != null){//Se verifica que la lista tenga nodos
+        if (cabeza != null) {//Se verifica que la lista tenga nodos
             NodoVehiculo aux = cabeza;//Se crea un nodo para índice
-            if(!aux.getDato().getPlaca().equals(placa)){
+            if (!aux.getDato().getPlaca().equals(placa)) {
                 aux = aux.getNext();
-            }else{
-                respuesta += "El vehiculo es modelo: "+aux.getDato().getModelo()+
-                        "del año: "+aux.getDato().getAnno()+
-                        "\n"+"Con un cilindraje "+aux.getDato().getCilindrada()+
-                        "\n"+"El combustible que utiliza es: "
-                        +aux.getDato().getCombustible()+
-                        "\n"+"Su estado es: "+aux.getDato().getEstado();
+            } else {
+                respuesta = aux.getDato();
+                esta = true;
             }
-            while(aux != cabeza){
-                if(aux.getDato().getPlaca().equals(placa)){
-                    respuesta += "El vehiculo es modelo: "+aux.getDato().getModelo()+
-                            "del año: "+aux.getDato().getAnno()+
-                            "\n"+"Con un cilindraje "+aux.getDato().getCilindrada()+
-                            "\n"+"El combustible que utiliza es: "
-                            +aux.getDato().getCombustible()+
-                            "\n"+"Su estado es: "+aux.getDato().getEstado();
+            while (aux != cabeza) {
+                if (aux.getDato().getPlaca().equals(placa)) {
+                    respuesta = aux.getDato();
                     esta = true;
-                    aux = cabeza;
-                }else{
+                    break;
+                } else {
                     aux = aux.getNext();
                 }
             }
-            if(esta == false){
-                respuesta = "El cliente no se ha encontrado";
+            if (!esta) {
+                respuesta = null;
             }
         }
         return respuesta;
@@ -226,7 +217,7 @@ public class ListaVehiculo {
    @Override
    public String toString(){
        NodoVehiculo aux = cabeza;
-        String s = "\n -= Lista de Vehiculos=-";
+        String s = "-= Lista de Vehiculos=-";
         if (aux != null){
             s+="\n"+aux;
             aux=aux.getNext();
@@ -234,8 +225,8 @@ public class ListaVehiculo {
             s+=",\n"+aux;
                 aux=aux.getNext();
             }
-        } else{
-            s+="vacia";
+        } else {
+            s += "No hay clientes";
         }
         return s;
    }

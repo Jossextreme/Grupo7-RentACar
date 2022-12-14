@@ -1133,7 +1133,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                 clienteN.setCorreoElec(correo);
                 clienteN.setCategoria(Categoria.Bronce);
                 
-                //clientes.Modificar(clienteN);
+                funciones.modificarCliente(clienteN);
                 //ingresarCliente(nom, fch, cedu, correo, Categoria.Bronce);
 
                 ModificarCorreo.setText(null);
@@ -1194,8 +1194,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                 || ModificarColor.getText().equals("")
                 || ModificarModelo.getText().equals("")
                 || ModificarPrecio.getText().equals("")
-                || ModificarMarca.getText().equals(""))
-                
+                || ModificarMarca.getText().equals("")) 
         {
             JOptionPane.showMessageDialog(
                     null,
@@ -1227,7 +1226,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                 vehiculoN.setPrecio(pre);
                 vehiculoN.setEstado(EstadoVehiculo.Disponible);
                 
-                vehiculos.Modificar(vehiculoN);
+                funciones.modificarVehiculo(vehiculoN);
                 
                 ModificarAño.setText(null);
                 ModificarCilin.setText(null);
@@ -1236,6 +1235,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                 ModificarMarca.setText(null);
                 ModificarNumPasa.setText(null);
                 ModificarPrecio.setText(null);
+                ModificarModelo.setText(null);
                 
                 
                 
@@ -1283,7 +1283,25 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_ModificarAñoActionPerformed
 
     private void ButtonBuscarVehiculo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarVehiculo2ActionPerformed
-        TextAreaVehiculos.setText(funciones.getVehiculos()+"");
+        Vehiculo vehiculo;
+        try{
+            vehiculo= funciones.buscarVehiculo(
+                    labelBEMvehiculos.getText()
+            );
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(
+                    null, 
+                    "Error: Placa no válida", 
+                    "Error: Placa no válida", 
+                    0
+            );
+            vehiculo= null;
+        }
+        if(vehiculo != null){
+            TextAreaVehiculos.setText(vehiculo+"");
+        }else{
+            TextAreaVehiculos.setText("-=Error=-\nVehículo no encontrado");
+        }
     }//GEN-LAST:event_ButtonBuscarVehiculo2ActionPerformed
 
 

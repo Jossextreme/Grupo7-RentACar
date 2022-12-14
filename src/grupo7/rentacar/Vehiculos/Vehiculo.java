@@ -123,14 +123,13 @@ String modelo, int anno, String color, int cilindrada, int pasajeros, double pre
     }
     @Override
     public String toString() {
-        return "Vehiculo{" +
-                "Placa="+placa+
-                ", Año="+anno+
-                ", Marca="+marca+
-                ", Modelo="+modelo+
-                ", Color="+color+
-                ", Combustible="+combustible+
-                ", Precio="+precio+
-                '}';
+        return "Marca: "+getMarca()+
+                "\n"+"Modelo: "+getModelo()+
+                "\n"+"Placa: "+getPlaca()+
+                "\n"+"Año: "+getAnno()+
+                "\n"+"Cilindraje: "+getCilindrada()+
+                "\n"+"Pasajeros: "+getPasajeros()+
+                "\n"+"Estado: "+getEstado()+
+                "\n------------------------------------------------------";
     }
 }
