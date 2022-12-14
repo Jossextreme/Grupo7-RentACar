@@ -129,6 +129,9 @@ public class Funciones {
         //vehiculos.Consultar(placa)
     }
 
+    //
+    //      Getters & Setters
+    //
     public ColaAlquiler getAlquileres() {
         return alquileres;
     }
