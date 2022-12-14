@@ -9,5 +9,28 @@ package grupo7.rentacar.Extras;
  * @author geova
  */
 public class NodoExtras {
-    
+
+    private Extra dato;
+    private NodoExtras next;
+
+    public NodoExtras(Extra dato) {
+        this.dato = dato;
+    }
+
+    public Extra getDato() {
+        return dato;
+    }
+
+    public void setDato(Extra dato) {
+        this.dato = dato;
+    }
+
+    public NodoExtras getNext() {
+        return next;
+    }
+
+    public void setNext(NodoExtras next) {
+        this.next = next;
+    }
+
 }
