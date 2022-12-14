@@ -6,9 +6,14 @@ package grupo7.rentacar;
 
 import grupo7.rentacar.Alquileres.Alquiler;
 import grupo7.rentacar.Alquileres.ColaAlquiler;
+import grupo7.rentacar.Cliente.Categoria;
 import grupo7.rentacar.Cliente.Cliente;
+import grupo7.rentacar.Cliente.ListaCliente;
+import grupo7.rentacar.Enumeraciones.EstadoVehiculo;
 import grupo7.rentacar.Extras.ListaExtras;
 import grupo7.rentacar.Vehiculos.ListaVehiculo;
+import grupo7.rentacar.Vehiculos.Vehiculo;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,9 +23,76 @@ public class Funciones {
     //
     //      Cambiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar el public
     //
-    public static ColaAlquiler alquileres = new ColaAlquiler();
-    public static ListaVehiculo vehiculos = new ListaVehiculo();
-    public static void solicitarAlquiler(
+    private ColaAlquiler alquileres = new ColaAlquiler();
+    private ListaVehiculo vehiculos = new ListaVehiculo();
+    private ListaCliente clientes = new ListaCliente();
+    private ListaExtras extras = new ListaExtras();
+    
+    //
+    //      Funciones cliente
+    //
+    public void crearCliente(
+            String nombre, 
+            String fecha, 
+            int cedula,
+            String correo, 
+            Categoria categoria
+    ){
+ 
+        Cliente clienteN = new Cliente();
+
+        clienteN.setNombre(nombre);
+        clienteN.setFechaNaci(fecha);
+        clienteN.setCedula(cedula);
+        clienteN.setCorreoElec(correo);
+        clienteN.setCategoria(categoria);
+
+        this.clientes.Insertar(clienteN);
+        //JOptionPane.showMessageDialog(null, clientes.Listar());
+    }
+    public void eliminarCliente(int cedula){
+        try {
+            clientes.Eliminar(cedula);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Error: Cliente no encontrado",
+                    "Error: Cliente no encontrado",
+                    0
+            );
+        }
+
+        //INCOMPLETO
+    }
+    public Cliente buscarCliente(int cedula){
+        return clientes.Consultar(cedula);
+    }
+    
+    //
+    //      Funciones Vehículo
+    //
+    public void ingresarVehiculo(String placa, String marca,
+            String modelo, int anno, String color, int cilindrada,
+            int pasajeros, double precio) {
+
+        Vehiculo vehiculoN = new Vehiculo();
+
+        vehiculoN.setPlaca(placa);
+        vehiculoN.setMarca(marca);
+        vehiculoN.setModelo(modelo);
+        vehiculoN.setAnno(anno);
+        vehiculoN.setColor(color);
+        vehiculoN.setCilindrada(cilindrada);
+        vehiculoN.setPasajeros(pasajeros);
+        vehiculoN.setPrecio(precio);
+        vehiculoN.setEstado(EstadoVehiculo.Disponible);
+
+        this.vehiculos.registrar(vehiculoN);
+    }
+    //
+    //      Funciones Alquiler
+    //
+    public void solicitarAlquiler(
             Cliente cliente,
             int cantidadDias, 
             int pasajerosMinimo, 
@@ -42,7 +114,25 @@ public class Funciones {
         alquileres.encola(alquiler);
         
     }
-    public static void asignarAlquiler(){
+    
+    
+    public void asignarAlquiler(){
         //vehiculos.Consultar(placa)
+    }
+
+    public ColaAlquiler getAlquileres() {
+        return alquileres;
+    }
+
+    public ListaVehiculo getVehiculos() {
+        return vehiculos;
+    }
+
+    public ListaCliente getClientes() {
+        return clientes;
+    }
+
+    public ListaExtras getExtras() {
+        return extras;
     }
 }

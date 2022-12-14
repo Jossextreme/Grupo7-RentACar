@@ -1,5 +1,6 @@
 
 package grupo7.rentacar.Cliente;
+import javax.swing.JOptionPane;
 
 public class ListaCliente {
     private NodoCliente cabeza;
@@ -42,14 +43,25 @@ public class ListaCliente {
     }
 
     public void Eliminar(int cedula) {
-
         if (cabeza != null) { //Si hay algo en la lista buscaré
             if (cedula >= cabeza.getDato().getCedula()
                     && cedula <= ultimo.getDato().getCedula()) {
                 if (cabeza.getDato().getCedula() == cedula) {
-                    cabeza = cabeza.getNext();
-                    //Actualizo la cabeza, la paso al siguiente porque se va eliminar ese nodo
-                    ultimo.setNext(cabeza);
+                    if (cabeza == ultimo) {
+                        cabeza = null;
+                        ultimo = null;
+                    } else {
+                        cabeza = cabeza.getNext();
+                        // Actualizo la cabeza, siguiente porque se va eliminar 
+                        // ese nodo
+                        ultimo.setNext(cabeza);
+                    }
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "¡Cliente eliminado satisfatoriamente!",
+                            "Cliente: ",
+                            1
+                    );
                 } else {
                     NodoCliente aux = cabeza; //utilizo aux como indice
                     //Mientras no se acabe la lista y el elemento
@@ -69,6 +81,14 @@ public class ListaCliente {
                     }
                 }
             }
+        }
+        else{
+        JOptionPane.showMessageDialog(
+                    null, 
+                    "Error: No hay clientes por eliminar", 
+                    "Error: No hay clientes por eliminar", 
+                    0
+            );
         }
     }
 
@@ -111,7 +131,7 @@ public class ListaCliente {
      * se ha encontrado"
      */
     public Cliente Consultar(int cedula) {
-        Cliente respuesta = new Cliente();
+        Cliente respuesta = null;
         boolean esta = false;
         if (cabeza != null) {//Se verifica que la lista tenga nodos
             NodoCliente aux = cabeza;//Se crea un nodo para índice
@@ -119,12 +139,13 @@ public class ListaCliente {
                 aux = aux.getNext();
             } else {
                 respuesta = aux.getDato();
+                esta = true;
             }
-            while (aux != cabeza) {
+            while (aux != cabeza && !esta) {
                 if (aux.getDato().getCedula() == cedula) {
                     respuesta = aux.getDato();
                     esta = true;
-                    aux = cabeza;
+                    break;
                 } else {
                     aux = aux.getNext();
                 }
@@ -134,32 +155,6 @@ public class ListaCliente {
             }
         }
         return respuesta;
-    }
-
-    public String Listar() {
-        NodoCliente aux = cabeza;
-        String s = "Lista de clientes: " + "\n";
-        if (aux != null) {
-            s += "Nombre: " + aux.getDato().getNombre() + "\n"
-                    + "Fecha de Nacimiento: " + aux.getDato().getFechaNaci() + "\n"
-                    + "Cédula: " + aux.getDato().getCedula() + "\n" + "Correo: "
-                    + aux.getDato().getCorreoElec() + "\n" + "Categoría: "
-                    + aux.getDato().getCategoria() + "\n"
-                    + "---------------------------------------------------------" + "\n";
-            aux = aux.getNext();
-            while (aux != cabeza) { //se debe detener la cabeza por ser cirucular
-                s += "Nombre: " + aux.getDato().getNombre() + "\n"
-                        + "Fecha de Nacimiento: " + aux.getDato().getFechaNaci() + "\n"
-                        + "Cédula: " + aux.getDato().getCedula() + "\n" + "Correo: "
-                        + aux.getDato().getCorreoElec() + "\n" + "Categoría: "
-                        + aux.getDato().getCategoria() + "\n"
-                        + "---------------------------------------------------------" + "\n";
-                aux = aux.getNext();
-            }
-        } else {
-            s += "vacia";
-        }
-        return s;
     }
 
     @Override
@@ -174,10 +169,8 @@ public class ListaCliente {
                 aux = aux.getNext();
             }
         } else {
-            s += "vacia";
+            s += "No hay clientes";
         }
         return s;
     }
-
-
 }

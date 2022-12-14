@@ -211,9 +211,9 @@ public class ListaVehiculo {
                 s+= "Marca: "+aux.getDato().getMarca()+"\n"+"Modelo: "+
                     aux.getDato().getModelo()+"\n"+"Placa: "+
                     aux.getDato().getPlaca()+"\n"+"Año: "+
-                    aux.getDato().getAnno()+"Cilindraje: "+
-                    aux.getDato().getCilindrada()+"Pasajeros: "+
-                    aux.getDato().getPasajeros()+"Estado: "+
+                    aux.getDato().getAnno()+"\n"+"Cilindraje: "+
+                    aux.getDato().getCilindrada()+"\n"+"Pasajeros: "+
+                    aux.getDato().getPasajeros()+"\n"+"Estado: "+
                     aux.getDato().getEstado()+
                     "---------------------------------------------------------";
             aux=aux.getNext();
