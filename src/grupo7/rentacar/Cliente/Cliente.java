@@ -122,13 +122,11 @@ public class Cliente {
     }
     @Override
     public String toString() {
-        return "Cliente{" +
-                "Cedula="+cedula+
-                ", Nombre="+nombre+
-                ", Apellidos="+apellidos+
-                ", Correo="+correoElec+
-                ", Cedula="+fechaNaci+
-                ", Categoria="+categoria+
-                '}';
+        return "Nombre: " + getNombre() + "\n"
+                        + "Fecha de Nacimiento: " + getFechaNaci() + "\n"
+                        + "Cédula: " + getCedula() + "\n" + "Correo: "
+                        + getCorreoElec() + "\n" + "Categoría: "
+                        + getCategoria() + "\n"
+                        + "---------------------------------------------------------";
     }
 }

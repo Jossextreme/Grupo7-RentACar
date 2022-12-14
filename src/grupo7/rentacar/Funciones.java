@@ -8,6 +8,7 @@ import grupo7.rentacar.Alquileres.Alquiler;
 import grupo7.rentacar.Alquileres.ColaAlquiler;
 import grupo7.rentacar.Cliente.Cliente;
 import grupo7.rentacar.Extras.ListaExtras;
+import grupo7.rentacar.Vehiculos.ListaVehiculo;
 
 /**
  *
@@ -18,6 +19,7 @@ public class Funciones {
     //      Cambiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar el public
     //
     public static ColaAlquiler alquileres = new ColaAlquiler();
+    public static ListaVehiculo vehiculos = new ListaVehiculo();
     public static void solicitarAlquiler(
             Cliente cliente,
             int cantidadDias, 
@@ -41,6 +43,6 @@ public class Funciones {
         
     }
     public static void asignarAlquiler(){
-        
+        //vehiculos.Consultar(placa)
     }
 }

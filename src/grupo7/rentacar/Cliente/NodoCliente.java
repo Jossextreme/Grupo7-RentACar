@@ -36,6 +36,6 @@ public class NodoCliente {
     
     @Override
     public String toString() {
-        return "\n{"+dato+"}";
+        return dato+"";
     }    
 }

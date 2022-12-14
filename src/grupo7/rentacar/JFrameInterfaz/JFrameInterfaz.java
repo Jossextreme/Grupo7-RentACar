@@ -350,6 +350,11 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(255, 102, 102));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setText("Enlistar Vehiculos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("SOLICITUDES DE ALQUILER");
@@ -539,9 +544,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                                                         .addGap(101, 101, 101)))
                                                 .addGap(33, 33, 33)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jCheckBox2)
-                                                .addGap(50, 50, 50))
+                                            .addComponent(jCheckBox2)
                                             .addComponent(jCheckBox1)
                                             .addComponent(jCheckBox5)
                                             .addComponent(jCheckBox4)
@@ -549,6 +552,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(278, 278, 278)
                                         .addComponent(ButtonIngresarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(9, 9, 9)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(35, 35, 35)
@@ -682,7 +686,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                                     .addComponent(labelBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel8))
                                 .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ButtonBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(ButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -1004,7 +1008,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_ModificarNombreActionPerformed
 
     private void ButtonEnlistarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnlistarClientesActionPerformed
-    TextAreaEnlistar.setText(clientes.Listar());
+        TextAreaEnlistar.setText(clientes + "");
         
     }//GEN-LAST:event_ButtonEnlistarClientesActionPerformed
 
@@ -1027,6 +1031,10 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     private void ButtonBuscarVehiculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarVehiculo1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ButtonBuscarVehiculo1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void ingresarCliente(String nombre, String fecha, int cedula,
             String correo, Categoria categoria) {
