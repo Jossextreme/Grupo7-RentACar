@@ -62,18 +62,7 @@ public class Funciones {
 
 
     }
-    public void eliminarVehiculo(String placa){
-        try{
-            vehiculos.Eliminar(placa);
-        }catch(Exception ex){
-                    JOptionPane.showMessageDialog(
-                    null,
-                    "Error: Cliente no encontrado",
-                    "Error: Cliente no encontrado",
-                    0
-            ); 
-        }
-    }
+    
     public Cliente buscarCliente(int cedula){
         return clientes.Consultar(cedula);
     }
@@ -85,7 +74,7 @@ public class Funciones {
     //      Funciones Vehículo
     //
     public void ingresarVehiculo(String placa, String marca,
-            String modelo, int anno, String color, int cilindrada,
+            int modelo, int anno, String color, int cilindrada,
             int pasajeros, double precio, ListaExtras ex) {
 
         Vehiculo vehiculoN = new Vehiculo();
@@ -109,6 +98,19 @@ public class Funciones {
     public Vehiculo buscarVehiculo(String Placa){
         return vehiculos.Consultar(Placa);
     }
+    public void eliminarVehiculo(String placa){
+        try{
+            vehiculos.Eliminar(placa);
+        }catch(Exception ex){
+                    JOptionPane.showMessageDialog(
+                    null,
+                    "Error: Cliente no encontrado",
+                    "Error: Cliente no encontrado",
+                    0
+            ); 
+        }
+    }
+    
     //
     //      Funciones Alquiler
     //

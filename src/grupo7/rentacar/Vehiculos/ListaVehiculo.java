@@ -1,5 +1,6 @@
 package grupo7.rentacar.Vehiculos;
 
+import grupo7.rentacar.Alquileres.Alquiler;
 import grupo7.rentacar.Cliente.Cliente;
 import grupo7.rentacar.Cliente.NodoCliente;
 import grupo7.rentacar.Enumeraciones.Combustibles;
@@ -96,7 +97,7 @@ public class ListaVehiculo {
      * caso de no encontrarlo devuelve un String con el mensaje "El cliente no 
      * se ha encontrado"
     */
-        public String Modificar(Vehiculo v){
+    public String Modificar(Vehiculo v){
         /*String respuesta = "";
         boolean esta = false;
         if(cabeza != null){//Se verifica que la lista tenga nodos
@@ -230,6 +231,47 @@ public class ListaVehiculo {
             s+="vacia";
         }
         return s;
+    }
+    public Vehiculo consultarGustos(Alquiler alquiler){
+       NodoVehiculo aux = cabeza;
+       boolean esta= false;
+       Vehiculo vehiculoReturn= null;
+        if (aux != null){
+            if(!validarGustos(alquiler, aux.getDato())){
+                aux=aux.getNext();
+            }else{
+                vehiculoReturn= aux.getDato();
+                esta= true;
+            }
+            while(aux != cabeza && !esta){ //detener la cabeza por ser cirucular
+                if(validarGustos(alquiler,aux.getDato())){
+                    vehiculoReturn= aux.getDato();
+                    esta=true;
+                    break;
+                }else{
+                    aux = aux.getNext();
+                }
+           }
+           if(!esta){
+                vehiculoReturn = null;
+           }
+        } else{
+            vehiculoReturn = null;
+        }
+        return vehiculoReturn;
+    }
+    private boolean validarGustos(Alquiler alquiler, Vehiculo vehiculo){
+        boolean fits = false;
+        if(alquiler.getPreferenciaMarca().toLowerCase().equals(vehiculo.getMarca().toLowerCase())){
+            if(alquiler.getPreferenciaModelo() == vehiculo.getModelo()){
+                if(alquiler.getPreferenciaPasajeros() <= vehiculo.getPasajeros()){
+                    if(){
+                        fits = true;
+                    }
+                }
+            }
+        }
+        return fits;
     }
    @Override
    public String toString(){

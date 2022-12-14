@@ -17,7 +17,7 @@ public class Vehiculo {
     private Combustibles combustible;
     private String placa;
     private String marca;
-    private String modelo;
+    private int modelo;
     private int anno;
     private String color;
     private int cilindrada;
@@ -84,11 +84,11 @@ String modelo, int anno, String color, int cilindrada, int pasajeros, double pre
         this.marca = marca;
     }
 
-    public String getModelo() {
+    public int getModelo() {
         return modelo;
     }
 
-    public void setModelo(String modelo) {
+    public void setModelo(int modelo) {
         this.modelo = modelo;
     }
 
