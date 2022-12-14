@@ -6,6 +6,7 @@ package grupo7.rentacar.Vehiculos;
 
 import grupo7.rentacar.Enumeraciones.Combustibles;
 import grupo7.rentacar.Enumeraciones.EstadoVehiculo;
+import grupo7.rentacar.Extras.ListaExtras;
 
 /**
  *
@@ -22,9 +23,10 @@ public class Vehiculo {
     private int cilindrada;
     private int pasajeros;
     private double precio;
+    private ListaExtras extras;
 
     public Vehiculo(Combustibles combustible, String placa, String marca, 
-String modelo, int anno, String color, int cilindrada, int pasajeros, double precio) {
+String modelo, int anno, String color, int cilindrada, int pasajeros, double precio, ListaExtras ex) {
         this.combustible = combustible;
         this.placa = placa;
         this.marca = marca;
@@ -34,12 +36,20 @@ String modelo, int anno, String color, int cilindrada, int pasajeros, double pre
         this.cilindrada = cilindrada;
         this.pasajeros = pasajeros;
         this.precio = precio;
-        
+        this.extras = ex;
         //Estado por defauls sería Disponible
         estado = EstadoVehiculo.Disponible;
     }
     public Vehiculo(){
         
+    }
+    
+    public void setExtras(ListaExtras ex){
+        this.extras = ex;
+    }
+    
+    public ListaExtras getExtras(){
+        return extras;
     }
     
     public EstadoVehiculo getEstado() {

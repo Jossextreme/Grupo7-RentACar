@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import grupo7.rentacar.Vehiculos.ListaVehiculo;
 import grupo7.rentacar.Vehiculos.Vehiculo;
 import grupo7.rentacar.Enumeraciones.EstadoVehiculo;
+import grupo7.rentacar.Extras.Extra;
 import grupo7.rentacar.Extras.ListaExtras;
 import grupo7.rentacar.Funciones;
 public class JFrameInterfaz extends javax.swing.JFrame {
@@ -85,11 +86,11 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         ButtonEliminarVehiculo = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         TextAreaEnlistarVehiculs = new javax.swing.JTextArea();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jCheckBox5 = new javax.swing.JCheckBox();
+        Extra1 = new javax.swing.JCheckBox();
+        Extra2 = new javax.swing.JCheckBox();
+        Extra3 = new javax.swing.JCheckBox();
+        Extra4 = new javax.swing.JCheckBox();
+        Extra5 = new javax.swing.JCheckBox();
         ButtonEnlistarClientes = new javax.swing.JButton();
         labelCantMinAlquileres = new javax.swing.JTextField();
         labelCantDiasAlquiler = new javax.swing.JTextField();
@@ -326,20 +327,30 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         TextAreaEnlistarVehiculs.setRows(5);
         jScrollPane4.setViewportView(TextAreaEnlistarVehiculs);
 
-        jCheckBox1.setText("Arranque sin llave");
-
-        jCheckBox2.setText("Navegador con trafico en vivo");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        Extra1.setText("Arranque sin llave");
+        Extra1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                Extra1ActionPerformed(evt);
             }
         });
 
-        jCheckBox3.setText("Sensores");
+        Extra2.setText("Navegador con trafico en vivo");
+        Extra2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Extra2ActionPerformed(evt);
+            }
+        });
 
-        jCheckBox4.setText("Camara con vision trasera");
+        Extra3.setText("Sensores");
 
-        jCheckBox5.setText("Conectividad con cargador inalambrico");
+        Extra4.setText("Camara con vision trasera");
+
+        Extra5.setText("Conectividad con cargador inalambrico");
+        Extra5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Extra5ActionPerformed(evt);
+            }
+        });
 
         ButtonEnlistarClientes.setBackground(new java.awt.Color(255, 102, 102));
         ButtonEnlistarClientes.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -647,11 +658,11 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                                                     .addComponent(Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGap(18, 18, 18)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jCheckBox2)
-                                        .addComponent(jCheckBox1)
-                                        .addComponent(jCheckBox5)
-                                        .addComponent(jCheckBox4)
-                                        .addComponent(jCheckBox3)))))
+                                        .addComponent(Extra2)
+                                        .addComponent(Extra1)
+                                        .addComponent(Extra5)
+                                        .addComponent(Extra4)
+                                        .addComponent(Extra3)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -825,16 +836,16 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(labelAño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel9)))
-                            .addComponent(jCheckBox1)
+                            .addComponent(Extra1)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(33, 33, 33)
-                                .addComponent(jCheckBox2)
+                                .addComponent(Extra2)
                                 .addGap(13, 13, 13)
-                                .addComponent(jCheckBox3)
+                                .addComponent(Extra3)
                                 .addGap(12, 12, 12)
-                                .addComponent(jCheckBox4)
+                                .addComponent(Extra4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckBox5)))
+                                .addComponent(Extra5)))
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(BoxCombustible, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1033,9 +1044,39 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                 an = Integer.parseInt(labelAño.getText());
                 np = Integer.parseInt(labelNumPasajeros.getText());
                 pre = Double.parseDouble(Precio.getText());
-
-                funciones.ingresarVehiculo(plc, mar, mod, an, col, cilin, np, pre);
-
+                
+                ListaExtras temp = new ListaExtras();
+                if(Extra1.isSelected()){
+                    Extra a = new Extra(Extra1.getText(),1);
+                    temp.inserta(a);
+                }
+                if(Extra2.isSelected()){
+                    Extra b = new Extra(Extra2.getText(),2);
+                    temp.inserta(b);
+                }
+                if(Extra3.isSelected()){
+                    Extra c = new Extra(Extra3.getText(),3);
+                    temp.inserta(c);
+                }
+                if(Extra4.isSelected()){
+                    Extra d = new Extra(Extra4.getText(),4);
+                    temp.inserta(d);
+                }
+                if(Extra5.isSelected()){
+                    Extra extra = new Extra(Extra5.getText(),5);
+                    temp.inserta(extra);
+                }
+                
+                funciones.ingresarVehiculo(plc, mar, mod, 
+                        an, col, cilin, np, 
+                        pre, temp);
+                
+                Extra1.setSelected(false);
+                Extra2.setSelected(false);
+                Extra3.setSelected(false);
+                Extra4.setSelected(false);
+                Extra5.setSelected(false);
+                
                 labelAño.setText(null);
                 labelCilindrada.setText(null);
                 labelMarca.setText(null);
@@ -1145,9 +1186,9 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ButtonEliminarVehiculoActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void Extra2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Extra2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_Extra2ActionPerformed
 
     private void ButtonSoliAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSoliAlquilerActionPerformed
         // TODO add your handling code here:
@@ -1284,6 +1325,14 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         TextAreaEnlistarVehiculs.setText(funciones.getVehiculos()+"");
     }//GEN-LAST:event_ButtonEnlistarVehiculos1ActionPerformed
 
+    private void Extra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Extra1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Extra1ActionPerformed
+
+    private void Extra5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Extra5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Extra5ActionPerformed
+
 
 
     public static void main(String args[]) {
@@ -1332,6 +1381,11 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     private javax.swing.JButton ButtonIngresarVehiculo;
     private javax.swing.JButton ButtonModificarVehiculo;
     private javax.swing.JButton ButtonSoliAlquiler;
+    private javax.swing.JCheckBox Extra1;
+    private javax.swing.JCheckBox Extra2;
+    private javax.swing.JCheckBox Extra3;
+    private javax.swing.JCheckBox Extra4;
+    private javax.swing.JCheckBox Extra5;
     private javax.swing.JTextField ModificarAño;
     private javax.swing.JTextField ModificarCilin;
     private javax.swing.JButton ModificarClienteBoton;
@@ -1349,11 +1403,6 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextArea TextAreaEnlistar;
     private javax.swing.JTextArea TextAreaEnlistarVehiculs;
     private javax.swing.JTextArea TextAreaVehiculos;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

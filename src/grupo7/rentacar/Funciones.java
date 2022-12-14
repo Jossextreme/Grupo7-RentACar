@@ -76,7 +76,7 @@ public class Funciones {
     //
     public void ingresarVehiculo(String placa, String marca,
             String modelo, int anno, String color, int cilindrada,
-            int pasajeros, double precio) {
+            int pasajeros, double precio, ListaExtras ex) {
 
         Vehiculo vehiculoN = new Vehiculo();
 
@@ -89,6 +89,7 @@ public class Funciones {
         vehiculoN.setPasajeros(pasajeros);
         vehiculoN.setPrecio(precio);
         vehiculoN.setEstado(EstadoVehiculo.Disponible);
+        vehiculoN.setExtras(ex);
 
         this.vehiculos.registrar(vehiculoN);
     }

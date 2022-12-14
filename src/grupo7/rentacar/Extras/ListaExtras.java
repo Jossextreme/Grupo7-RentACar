@@ -75,7 +75,7 @@ cámara de visión trasera
     public String Listar(){
         String respuesta = "Las extras son las siguientes: "+"\n";
         NodoExtras aux = cabeza;
-        while(aux.getNext()!= null){
+        while(aux != null){
             respuesta += "- "+aux.getDato().getNombre()+"\n";
             aux = aux.getNext();
         }
