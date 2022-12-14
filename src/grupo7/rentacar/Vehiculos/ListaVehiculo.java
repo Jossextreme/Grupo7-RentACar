@@ -53,8 +53,18 @@ public class ListaVehiculo {
     public void Eliminar(String placa){
         if (cabeza != null) {
             if (cabeza.getDato().getPlaca().equals(placa)) {
-                cabeza = cabeza.getNext(); 
-                ultimo.setNext(cabeza);
+                if (cabeza == ultimo) {
+                    cabeza = null;
+                    ultimo = null;
+                }else{
+                    cabeza = cabeza.getNext(); 
+                    ultimo.setNext(cabeza);
+                }
+                JOptionPane.showMessageDialog(null, 
+                        "Vehiculo eliminado con exito"
+                        , "Vehiculo: "
+                        , 1
+                );
             }else{
                 NodoVehiculo aux = cabeza;
                 while (aux.getNext() != cabeza 
@@ -70,6 +80,13 @@ public class ListaVehiculo {
                     aux.setNext(aux.getNext().getNext()); 
                 }
             }
+        }else{
+            JOptionPane.showMessageDialog(
+                    null, 
+                    "Error: No hay vehiculos por eliminar", 
+                    "Error: No hay vehiculos por eliminar", 
+                    0
+            );
         }
     }
     /* El método consultar recibe como parámetro una placa que se desea consultar, así que 

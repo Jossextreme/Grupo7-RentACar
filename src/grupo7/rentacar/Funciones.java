@@ -20,9 +20,7 @@ import javax.swing.JOptionPane;
  * @author geova
  */
 public class Funciones {
-    //
-    //      Cambiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar el public
-    //
+
     private ColaAlquiler alquileres = new ColaAlquiler();
     private ListaVehiculo vehiculos = new ListaVehiculo();
     private ListaCliente clientes = new ListaCliente();
@@ -62,7 +60,19 @@ public class Funciones {
             );
         }
 
-        //INCOMPLETO
+
+    }
+    public void eliminarVehiculo(String placa){
+        try{
+            vehiculos.Eliminar(placa);
+        }catch(Exception ex){
+                    JOptionPane.showMessageDialog(
+                    null,
+                    "Error: Cliente no encontrado",
+                    "Error: Cliente no encontrado",
+                    0
+            ); 
+        }
     }
     public Cliente buscarCliente(int cedula){
         return clientes.Consultar(cedula);
