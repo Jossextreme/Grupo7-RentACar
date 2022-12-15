@@ -103,49 +103,6 @@ public class ListaVehiculo {
      * se ha encontrado"
     */
     public String Modificar(Vehiculo v){
-        /*String respuesta = "";
-        boolean esta = false;
-        if(cabeza != null){//Se verifica que la lista tenga nodos
-            NodoVehiculo aux = cabeza;//Se crea un nodo para índice
-            if(!aux.getDato().getPlaca().equals(v.getPlaca())){
-                aux = aux.getNext();
-            }else{
-                NodoVehiculo temp = new NodoVehiculo(v);
-                temp.setNext(aux.getNext());
-                temp.setBack(aux.getBack());
-                cabeza = temp;
-                aux = cabeza;
-                esta = true;
-            }
-            while(aux != cabeza){
-                if((aux.getDato().getPlaca().equals(v.getPlaca()))&& aux != ultimo){
-                    NodoVehiculo temp = new NodoVehiculo(v);
-                    temp.setNext(aux.getNext());
-                    temp.setBack(aux.getBack());
-                    aux.setNext(null);
-                    aux.setBack(null);
-                    esta = true;
-                    aux = cabeza;
-                }else if((aux.getDato().getPlaca().equals(v.getPlaca()))&& aux == ultimo){
-                    NodoVehiculo temp = new NodoVehiculo(v);
-                    temp.setNext(aux.getNext());
-                    temp.setBack(aux.getBack());
-                    ultimo = temp;
-                    aux.setNext(null);
-                    aux.setBack(null);
-                    esta = true;
-                    aux = cabeza;
-                }else{
-                    aux = aux.getNext();
-                }
-            }
-            if(esta == false){
-                respuesta = "El cliente no se ha encontrado";
-            }else{
-                respuesta = "El cliente fue correctamente modificado";
-            }
-        }
-        return respuesta;*/
         
         String respuesta = "";
         boolean esta = false;
