@@ -1114,7 +1114,9 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     private void ButtonDevolverVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDevolverVehiculoActionPerformed
         String placa = BuscarPlaca1.getText();
         try{
-            
+            Vehiculo temp = funciones.buscarVehiculo(placa);
+            temp.setEstado(EstadoVehiculo.Disponible);
+            funciones.modificarVehiculo(temp);
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, "El vehículo "
                     + "no existe");
