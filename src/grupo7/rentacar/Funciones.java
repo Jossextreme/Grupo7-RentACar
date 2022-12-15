@@ -9,6 +9,7 @@ import grupo7.rentacar.Alquileres.ColaAlquiler;
 import grupo7.rentacar.Cliente.Categoria;
 import grupo7.rentacar.Cliente.Cliente;
 import grupo7.rentacar.Cliente.ListaCliente;
+import grupo7.rentacar.Enumeraciones.EstadoAlquiler;
 import grupo7.rentacar.Enumeraciones.EstadoVehiculo;
 import grupo7.rentacar.Extras.ListaExtras;
 import grupo7.rentacar.Vehiculos.ListaVehiculo;
@@ -141,7 +142,39 @@ public class Funciones {
     
     
     public void asignarAlquiler(){
-        //vehiculos.Consultar(placa)
+        Alquiler alquiler = alquileres.atiende();
+        Vehiculo vehiculoAsignado = vehiculos.consultarGustos(alquiler);
+        
+        if(vehiculoAsignado == null){
+            vehiculoAsignado.setEstado(EstadoVehiculo.Alquilado);
+             alquiler.setEstado(EstadoAlquiler.Procesado);
+        
+            alquiler.setMontoFinal(
+                    (vehiculoAsignado.getPrecio() * alquiler.getTiempo()
+                            )*1.13
+            );
+            if(alquiler.getMontoFinal()>= 70000){
+                alquiler.getC().subirCategoria();
+            }
+            JOptionPane.showMessageDialog(
+                    null, 
+                    "¡Alquiler completado satisfactoriamente!", 
+                    "Alquiler: Procesado", 
+                    0
+            );
+        }else{
+            alquiler.setEstado(
+                    EstadoAlquiler.Rechazado
+            );
+            JOptionPane.showMessageDialog(
+                    null, 
+                    "No hay vehiculos disponibles a su criterio", 
+                    "Alquiler: Rechazado", 
+                    0
+            );
+        }
+       
+        
     }
 
     //

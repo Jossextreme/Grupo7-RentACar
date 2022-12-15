@@ -67,7 +67,7 @@ public class ListaCliente {
                     //Mientras no se acabe la lista y el elemento
                     //de la lista sea menor que el buscado
                     while (aux.getNext() != cabeza
-                            && aux.getDato().getCedula() < cedula) {
+                            && aux.getNext().getDato().getCedula() < cedula) {
                         aux = aux.getNext();//avanzo en la lista
                     }
                     // si es el de adelante lo borro
@@ -78,6 +78,12 @@ public class ListaCliente {
                         }
                         //cambio las referencias
                         aux.setNext(aux.getNext().getNext());
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "¡Cliente eliminado satisfatoriamente!",
+                                "Cliente: ",
+                                1
+                        );
                     }
                 }
             }
