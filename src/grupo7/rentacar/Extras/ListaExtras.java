@@ -82,6 +82,42 @@ cámara de visión trasera
         return respuesta;
     }
     
+    
+    public int numIDExtras(){
+        String s="";
+        
+        // Arranque sin llave
+        if(existe(1)){
+            s+="1";
+        }else{
+            s+="0";
+        }
+        
+        //Navegador
+        if(existe(2)){
+            s+="1";
+        }else{
+            s+="0";
+        }
+        if(existe(3)){
+            s+="1";
+        }else{
+            s+="0";
+        }
+        if(existe(4)){
+            s+="1";
+        }else{
+            s+="0";
+        }
+        if(existe(5)){
+            s+="1";
+        }else{
+            s+="0";
+        }
+        
+        return Integer.parseInt(s);
+    }
+    
     @Override
     public String toString(){
         String s= "";

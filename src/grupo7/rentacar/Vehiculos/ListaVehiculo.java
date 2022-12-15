@@ -265,7 +265,7 @@ public class ListaVehiculo {
         if(alquiler.getPreferenciaMarca().toLowerCase().equals(vehiculo.getMarca().toLowerCase())){
             if(alquiler.getPreferenciaModelo() == vehiculo.getModelo()){
                 if(alquiler.getPreferenciaPasajeros() <= vehiculo.getPasajeros()){
-                    if(){
+                    if(vehiculo.getExtras().numIDExtras() == alquiler.getExtras().numIDExtras()){
                         fits = true;
                     }
                 }
