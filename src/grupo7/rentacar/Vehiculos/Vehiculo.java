@@ -26,7 +26,7 @@ public class Vehiculo {
     private ListaExtras extras;
 
     public Vehiculo(Combustibles combustible, String placa, String marca, 
-String modelo, int anno, String color, int cilindrada, int pasajeros, double precio, ListaExtras ex) {
+int modelo, int anno, String color, int cilindrada, int pasajeros, double precio, ListaExtras ex) {
         this.combustible = combustible;
         this.placa = placa;
         this.marca = marca;
@@ -140,6 +140,7 @@ String modelo, int anno, String color, int cilindrada, int pasajeros, double pre
                 "\n"+"Cilindraje: "+getCilindrada()+
                 "\n"+"Pasajeros: "+getPasajeros()+
                 "\n"+"Estado: "+getEstado()+
+                "\n"+"Extras: "+getExtras()+
                 "\n------------------------------------------------------";
     }
 }

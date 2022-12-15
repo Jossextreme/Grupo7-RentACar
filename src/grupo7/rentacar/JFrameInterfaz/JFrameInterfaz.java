@@ -1015,9 +1015,9 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_PrecioActionPerformed
 
     private void ButtonIngresarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonIngresarVehiculoActionPerformed
-                String mod = "", col = "", plc = "", mar = "";
+        String col = "", plc = "", mar = "";
         Combustibles comb;
-        int an = 0, np = 0, cilin = 0;
+        int mod = 0, an = 0, np = 0, cilin = 0;
         double pre = 0;
         if ( // Verificamos que los datos del cliente no esté vacíos
                 labelModelo.getText().equals(" ")
@@ -1037,7 +1037,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         } else {
             try {
 
-                mod = labelModelo.getText();
+                mod = Integer.parseInt(labelModelo.getText());
                 cilin = Integer.parseInt(labelCilindrada.getText());
                 col = labelColor.getText();
                 plc = labelPlaca.getText();

@@ -84,6 +84,17 @@ cámara de visión trasera
     
     @Override
     public String toString(){
-        return "EXTRAS";
+        String s= "";
+        if (cabeza != null){
+            NodoExtras aux = cabeza;
+            while (aux != null){
+                s+=aux.getDato()+", ";
+                aux = aux.getNext ();
+            }
+            s = s.substring(0,s.length()-3);
+        }else{
+            s= "No hay extras";
+        }
+        return s;
     }   
 }
