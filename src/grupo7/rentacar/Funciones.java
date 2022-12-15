@@ -15,6 +15,7 @@ import grupo7.rentacar.Extras.ListaExtras;
 import grupo7.rentacar.Vehiculos.ListaVehiculo;
 import grupo7.rentacar.Vehiculos.Vehiculo;
 import javax.swing.JOptionPane;
+import grupo7.rentacar.Enumeraciones.Combustibles;
 
 /**
  *
@@ -76,7 +77,7 @@ public class Funciones {
     //
     public void ingresarVehiculo(String placa, String marca,
             int modelo, int anno, String color, int cilindrada,
-            int pasajeros, double precio, ListaExtras ex) {
+            int pasajeros, double precio, ListaExtras ex, Combustibles comb) {
 
         Vehiculo vehiculoN = new Vehiculo();
 
@@ -90,6 +91,7 @@ public class Funciones {
         vehiculoN.setPrecio(precio);
         vehiculoN.setEstado(EstadoVehiculo.Disponible);
         vehiculoN.setExtras(ex);
+        vehiculoN.setCombustible(comb);
 
         this.vehiculos.registrar(vehiculoN);
     }
@@ -105,8 +107,8 @@ public class Funciones {
         }catch(Exception ex){
                     JOptionPane.showMessageDialog(
                     null,
-                    "Error: Cliente no encontrado",
-                    "Error: Cliente no encontrado",
+                    "Error: Vehiculo no encontrado",
+                    "Error: Vehiculo no encontrado",
                     0
             ); 
         }
