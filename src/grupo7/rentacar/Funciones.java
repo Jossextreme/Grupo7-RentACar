@@ -9,6 +9,7 @@ import grupo7.rentacar.Alquileres.ColaAlquiler;
 import grupo7.rentacar.Cliente.Categoria;
 import grupo7.rentacar.Cliente.Cliente;
 import grupo7.rentacar.Cliente.ListaCliente;
+import grupo7.rentacar.Enumeraciones.EstadoAlquiler;
 import grupo7.rentacar.Enumeraciones.EstadoVehiculo;
 import grupo7.rentacar.Extras.ListaExtras;
 import grupo7.rentacar.Vehiculos.ListaVehiculo;
@@ -139,7 +140,14 @@ public class Funciones {
     
     
     public void asignarAlquiler(){
-        //vehiculos.Consultar(placa)
+        Alquiler alquiler = alquileres.atiende();
+        Vehiculo vehiculoAsignado = vehiculos.consultarGustos(alquiler);
+        
+        vehiculoAsignado.setEstado(EstadoVehiculo.Alquilado);
+        alquiler.setEstado(EstadoAlquiler.Procesado);
+        
+        double pagoAlquiler = (vehiculoAsignado.getPrecio()*alquiler.getTiempo())*1.13;
+        
     }
 
     //
