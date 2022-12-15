@@ -1210,8 +1210,8 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_BuscarPlaca1ActionPerformed
 
     private void ButtonModificarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonModificarVehiculoActionPerformed
-        String mod = "", col = "", mar = "", plc = "";
-         int an = 0, np = 0, cilin = 0;
+        String col = "", mar = "", plc = "";
+        int mod = 0, an = 0, np = 0, cilin = 0;
          double pre = 0;
         if ( // Verificamos que los datos del cliente no esté vacíos
                 ModificarAño.getText().equals("")
@@ -1233,7 +1233,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         
         } else {
             try{
-                mod = ModificarModelo.getText();
+                mod = Integer.parseInt(ModificarModelo.getText());
                 an = Integer.parseInt(ModificarAño.getText());
                 mar = ModificarMarca.getText();
                 col = ModificarColor.getText();
