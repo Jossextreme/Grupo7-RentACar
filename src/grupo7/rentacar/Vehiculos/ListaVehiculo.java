@@ -285,7 +285,7 @@ public class ListaVehiculo {
                 aux=aux.getNext();
             }
         } else {
-            s += "No hay clientes";
+            s += "\nNo hay vehículos";
         }
         return s;
    }
