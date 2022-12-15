@@ -1112,8 +1112,13 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_labelBEMcedulaActionPerformed
 
     private void ButtonDevolverVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDevolverVehiculoActionPerformed
-        TextAreaVehiculos.setText(funciones.getVehiculos()+"");
-
+        String placa = BuscarPlaca1.getText();
+        try{
+            
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "El vehículo "
+                    + "no existe");
+        }
     }//GEN-LAST:event_ButtonDevolverVehiculoActionPerformed
 
     private void labelMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_labelMarcaActionPerformed
@@ -1546,7 +1551,10 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameInterfaz().setVisible(true);
+                JFrameInterfaz interfaz = new JFrameInterfaz();
+                interfaz.setSize(3840, 2400);
+                interfaz.setVisible(true);
+                //new JFrameInterfaz().setVisible(true);
             }
         });
     }
