@@ -145,10 +145,35 @@ public class Funciones {
         Alquiler alquiler = alquileres.atiende();
         Vehiculo vehiculoAsignado = vehiculos.consultarGustos(alquiler);
         
-        vehiculoAsignado.setEstado(EstadoVehiculo.Alquilado);
-        alquiler.setEstado(EstadoAlquiler.Procesado);
+        if(vehiculoAsignado == null){
+            vehiculoAsignado.setEstado(EstadoVehiculo.Alquilado);
+             alquiler.setEstado(EstadoAlquiler.Procesado);
         
-        double pagoAlquiler = (vehiculoAsignado.getPrecio()*alquiler.getTiempo())*1.13;
+            alquiler.setMontoFinal(
+                    (vehiculoAsignado.getPrecio() * alquiler.getTiempo()
+                            )*1.13
+            );
+            if(alquiler.getMontoFinal()>= 70000){
+                alquiler.getC().subirCategoria();
+            }
+            JOptionPane.showMessageDialog(
+                    null, 
+                    "¡Alquiler completado satisfactoriamente!", 
+                    "Alquiler: Procesado", 
+                    0
+            );
+        }else{
+            alquiler.setEstado(
+                    EstadoAlquiler.Rechazado
+            );
+            JOptionPane.showMessageDialog(
+                    null, 
+                    "No hay vehiculos disponibles a su criterio", 
+                    "Alquiler: Rechazado", 
+                    0
+            );
+        }
+       
         
     }
 

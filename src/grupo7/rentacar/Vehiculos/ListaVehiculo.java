@@ -61,31 +61,36 @@ public class ListaVehiculo {
                     cabeza = cabeza.getNext(); 
                     ultimo.setNext(cabeza);
                 }
-                JOptionPane.showMessageDialog(null, 
-                        "Vehiculo eliminado con exito"
-                        , "Vehiculo: "
-                        , 1
+                JOptionPane.showMessageDialog(
+                        null,
+                        "¡Vehículo eliminado satisfactoriamente!",
+                        "Vehículo: Eliminado",
+                        1
                 );
-            }else{
+            }else {
                 NodoVehiculo aux = cabeza;
-                while (aux.getNext() != cabeza 
-                        && !aux.getNext().getDato().getPlaca().equals(placa) 
-                      ) 
-                {
+                while (aux.getNext() != cabeza
+                        && !aux.getNext().getDato().getPlaca().equals(placa)) {
                     aux = aux.getNext();
                 }
                 if (aux.getNext().getDato().getPlaca().equals(placa)) {
-                    if (aux.getNext() == ultimo) { 
+                    if (aux.getNext() == ultimo) {
                         ultimo = aux; //Se actualiza el utlimo
-                    }    
-                    aux.setNext(aux.getNext().getNext()); 
+                    }
+                    aux.setNext(aux.getNext().getNext());
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "¡Vehículo eliminado satisfactoriamente!",
+                            "Vehículo: Eliminado",
+                            1
+                    );
                 }
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(
-                    null, 
-                    "Error: No hay vehiculos por eliminar", 
-                    "Error: No hay vehiculos por eliminar", 
+                    null,
+                    "Error: No hay vehiculos por eliminar",
+                    "Error: No hay vehiculos por eliminar",
                     0
             );
         }

@@ -22,6 +22,7 @@ public class Alquiler {
     private int preferenciaModelo;
     private ListaExtras extras;
     private EstadoAlquiler estado;
+    private double montoFinal;
 
     public Alquiler(
             Cliente c,  
@@ -114,5 +115,13 @@ public class Alquiler {
                 ", Extras="+extras+
                 ", Estado="+estado+
                 '}';
+    }
+
+    public double getMontoFinal() {
+        return montoFinal;
+    }
+
+    public void setMontoFinal(double montoFinal) {
+        this.montoFinal = montoFinal;
     }
 }

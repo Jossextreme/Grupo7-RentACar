@@ -141,8 +141,8 @@ double precio, ListaExtras ex) {
                 "\n"+"Cilindraje: "+getCilindrada()+
                 "\n"+"Pasajeros: "+getPasajeros()+
                 "\n"+"Estado: "+getEstado()+
+                "\n"+"Combustible: "+getCombustible()+
                 "\n"+"Extras: "+getExtras()+
-                "\n"+"Combustible"+getCombustible()+
                 "\n------------------------------------------------------";
     }
 }

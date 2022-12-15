@@ -32,5 +32,8 @@ public class Extra {
     public void setId(int Id) {
         this.Id = Id;
     }
-    
+    @Override
+    public String toString(){
+        return "\n - "+nombre;
+    }
 }
