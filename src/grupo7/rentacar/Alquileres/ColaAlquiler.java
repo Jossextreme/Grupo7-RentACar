@@ -53,7 +53,7 @@ public class ColaAlquiler {
     
     @Override
     public String toString(){
-        String s="\n\n\n\n -= Cola de Alquileres =- ";
+        String s="-= Cola de Alquileres =- \n";
         NodoAlquiler aux=frente;
         while(aux!=null){
             s+=aux;

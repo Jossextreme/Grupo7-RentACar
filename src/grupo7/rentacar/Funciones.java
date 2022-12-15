@@ -141,11 +141,11 @@ public class Funciones {
     }
     
     
-    public void asignarAlquiler(){
+    public Vehiculo asignarAlquiler(){
         Alquiler alquiler = alquileres.atiende();
         Vehiculo vehiculoAsignado = vehiculos.consultarGustos(alquiler);
         
-        if(vehiculoAsignado == null){
+        if(vehiculoAsignado != null){
             vehiculoAsignado.setEstado(EstadoVehiculo.Alquilado);
              alquiler.setEstado(EstadoAlquiler.Procesado);
         
@@ -160,7 +160,7 @@ public class Funciones {
                     null, 
                     "¡Alquiler completado satisfactoriamente!", 
                     "Alquiler: Procesado", 
-                    0
+                    1
             );
         }else{
             alquiler.setEstado(
@@ -174,7 +174,7 @@ public class Funciones {
             );
         }
        
-        
+        return vehiculoAsignado;
     }
 
     //

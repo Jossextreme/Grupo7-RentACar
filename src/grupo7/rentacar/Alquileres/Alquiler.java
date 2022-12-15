@@ -106,15 +106,14 @@ public class Alquiler {
     }
     @Override
     public String toString() {
-        return "Alquiler{" +
-                "Persona="+getC().getNombre()+" "+getC().getApellidos()+
-                ", Categoría="+getC().getCategoria()+
-                ", Cantidad Minima Pasajeros="+preferenciaPasajeros+
-                ", Preferencia marca ="+preferenciaMarca+
-                ", Preferencia Modelo="+preferenciaModelo+
-                ", Extras="+extras+
-                ", Estado="+estado+
-                '}';
+        return 
+                "Persona="+getC().getNombre()+
+                "\n"+ "Categoría="+getC().getCategoria()+
+                "\n"+ "Cantidad Minima Pasajeros="+preferenciaPasajeros+
+                "\n"+ "Preferencia marca ="+preferenciaMarca+
+                "\n"+ "Preferencia Modelo="+preferenciaModelo+
+                "\n"+ "Extras="+extras+
+                "\n"+ "Estado="+estado+"\n----------------\n\n";
     }
 
     public double getMontoFinal() {

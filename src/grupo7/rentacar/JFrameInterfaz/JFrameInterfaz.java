@@ -104,8 +104,6 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         TextAreaBuscarAlquiler = new javax.swing.JTextArea();
-        BuscarPlaca1 = new javax.swing.JTextField();
-        jLabel28 = new javax.swing.JLabel();
         ButtonModificarVehiculo = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         ModificarMarca = new javax.swing.JTextField();
@@ -136,6 +134,10 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         Extra4Alquiler = new javax.swing.JCheckBox();
         Extra5Alquiiler = new javax.swing.JCheckBox();
         Extra3Alquiler = new javax.swing.JCheckBox();
+        txbAlquilerCedula = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        txbAlquilerPlaca = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -177,7 +179,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
             }
         });
 
-        ButtonDevolverVehiculo.setBackground(new java.awt.Color(255, 255, 51));
+        ButtonDevolverVehiculo.setBackground(new java.awt.Color(255, 102, 102));
         ButtonDevolverVehiculo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ButtonDevolverVehiculo.setText("Devolver Vehiculo");
         ButtonDevolverVehiculo.addActionListener(new java.awt.event.ActionListener() {
@@ -402,14 +404,6 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         TextAreaBuscarAlquiler.setRows(5);
         jScrollPane5.setViewportView(TextAreaBuscarAlquiler);
 
-        BuscarPlaca1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarPlaca1ActionPerformed(evt);
-            }
-        });
-
-        jLabel28.setText("Placa");
-
         ButtonModificarVehiculo.setBackground(new java.awt.Color(0, 204, 0));
         ButtonModificarVehiculo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ButtonModificarVehiculo.setText("Modificar Vehiculo");
@@ -500,6 +494,11 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         ButtonEnlistarAlquiler.setBackground(new java.awt.Color(255, 255, 51));
         ButtonEnlistarAlquiler.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         ButtonEnlistarAlquiler.setText("Enlistar Alquiler");
+        ButtonEnlistarAlquiler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonEnlistarAlquilerActionPerformed(evt);
+            }
+        });
 
         ComboBoxCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bronce", "Plata", "Oro", "Zafiro", " " }));
 
@@ -509,7 +508,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
 
         ButtonBuscarVehiculo1.setBackground(new java.awt.Color(255, 255, 51));
         ButtonBuscarVehiculo1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        ButtonBuscarVehiculo1.setText("Buscar Alquiler");
+        ButtonBuscarVehiculo1.setText("Atender Alquiler");
         ButtonBuscarVehiculo1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ButtonBuscarVehiculo1ActionPerformed(evt);
@@ -540,6 +539,10 @@ public class JFrameInterfaz extends javax.swing.JFrame {
         });
 
         Extra3Alquiler.setText("Camara con vision trasera");
+
+        jLabel1.setText("Cedula:");
+
+        jLabel28.setText("Placa:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -680,7 +683,6 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                                                 .addGap(60, 60, 60))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addGap(12, 12, 12)
@@ -732,56 +734,30 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                         .addComponent(jLabel27)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel26)
-                        .addGap(437, 437, 437)))
+                        .addGap(466, 466, 466)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(110, 110, 110)
-                                .addComponent(jLabel28)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(BuscarPlaca1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addComponent(jLabel6))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(30, 30, 30)
-                                        .addComponent(ButtonBuscarVehiculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(ButtonDevolverVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane5))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(150, 150, 150)
-                                .addComponent(ButtonEnlistarAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(122, 122, 122)
-                                .addComponent(ButtonSoliAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Extra1Alquiler)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Extra2Alquiler)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Extra3Alquiler))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Extra4Alquiler)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Extra5Alquiiler)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel36)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelPreferenciasModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(ButtonEnlistarAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Extra1Alquiler)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Extra2Alquiler)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Extra3Alquiler))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(74, 74, 74)
+                            .addComponent(jLabel36)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(labelPreferenciasModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(60, 60, 60))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel24)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -797,8 +773,40 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                                             .addComponent(jLabel25)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(labelPreferenciasMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(68, 68, 68))))))
-                        .addGap(90, 90, 90))))
+                                            .addGap(68, 68, 68)))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ButtonBuscarVehiculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txbAlquilerPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(ButtonDevolverVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Extra4Alquiler)
+                                    .addComponent(ButtonSoliAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txbAlquilerCedula, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Extra5Alquiiler)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(316, 316, 316)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -863,12 +871,45 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ButtonBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ButtonEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(38, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel26))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelCantMinAlquileres, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel24))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel25)
+                                    .addComponent(labelPreferenciasMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelCantDiasAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(labelPreferenciasModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel36))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Extra1Alquiler)
+                                    .addComponent(Extra2Alquiler)
+                                    .addComponent(Extra3Alquiler))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(Extra4Alquiler)
+                                    .addComponent(Extra5Alquiiler))
+                                .addGap(9, 9, 9)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(ButtonSoliAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txbAlquilerCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1))
+                                .addGap(139, 139, 139)
+                                .addComponent(ButtonEnlistarAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(40, 40, 40)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -966,60 +1007,29 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                                                     .addComponent(ButtonBuscarVehiculo2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(ButtonEliminarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(58, 58, 58)
-                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                .addGap(58, 58, 58)
+                                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ButtonEnlistarVehiculos1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap())
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(labelCantMinAlquileres, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel24))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel25)
-                                    .addComponent(labelPreferenciasMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelCantDiasAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(labelPreferenciasModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel36))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Extra1Alquiler)
-                                    .addComponent(Extra2Alquiler)
-                                    .addComponent(Extra3Alquiler))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Extra4Alquiler)
-                                    .addComponent(Extra5Alquiiler))
-                                .addGap(9, 9, 9)
-                                .addComponent(ButtonSoliAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ButtonEnlistarAlquiler, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(BuscarPlaca1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel28))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel7)
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(ButtonBuscarVehiculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(ButtonDevolverVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(ButtonEnlistarVehiculos1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(txbAlquilerPlaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel28))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(ButtonBuscarVehiculo1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(ButtonDevolverVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addGap(74, 74, 74))))
         );
 
         pack();
@@ -1112,7 +1122,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_labelBEMcedulaActionPerformed
 
     private void ButtonDevolverVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonDevolverVehiculoActionPerformed
-        String placa = BuscarPlaca1.getText();
+        String placa = txbAlquilerPlaca.getText();
         try{
             Vehiculo temp = funciones.buscarVehiculo(placa);
             temp.setEstado(EstadoVehiculo.Disponible);
@@ -1189,7 +1199,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                 pre = Double.parseDouble(Precio.getText());
                 
                 ListaExtras temp = new ListaExtras();
-                if(Extra1Alquiler.isSelected()){
+                if(Extra6.isSelected()){
                     Extra a = new Extra(Extra1Alquiler.getText(),1);
                     temp.inserta(a);
                 }
@@ -1197,7 +1207,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
                     Extra b = new Extra(Extra2.getText(),2);
                     temp.inserta(b);
                 }
-                if(Extra2Alquiler.isSelected()){
+                if(Extra7.isSelected()){
                     Extra c = new Extra(Extra2Alquiler.getText(),3);
                     temp.inserta(c);
                 }
@@ -1366,12 +1376,61 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_Extra2ActionPerformed
 
     private void ButtonSoliAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonSoliAlquilerActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ButtonSoliAlquilerActionPerformed
+        Cliente cliente = funciones.buscarCliente(
+                Integer.parseInt(txbAlquilerCedula.getText())
+        );
+        if(cliente == null){
+            JOptionPane.showMessageDialog(
+                    null, 
+                    "Error: Cliente no existente", 
+                    "Error: Cliente no existente", 
+                    0
+            );
+        }else{
+            ListaExtras extras = new ListaExtras();
+                if(Extra1Alquiler.isSelected()){
+                    Extra a = new Extra(Extra1Alquiler.getText(),1);
+                    extras.inserta(a);
+                }
+                if(Extra5Alquiiler.isSelected()){
+                    Extra b = new Extra(Extra2.getText(),2);
+                    extras.inserta(b);
+                }
+                if(Extra2Alquiler.isSelected()){
+                    Extra c = new Extra(Extra2Alquiler.getText(),3);
+                    extras.inserta(c);
+                }
+                if(Extra3Alquiler.isSelected()){
+                    Extra d = new Extra(Extra4.getText(),4);
+                    extras.inserta(d);
+                }
+                if(Extra4Alquiler.isSelected()){
+                    Extra extra = new Extra(Extra5.getText(),5);
+                    extras.inserta(extra);
+                }
+            funciones.solicitarAlquiler(
+                    cliente, 
+                    Integer.parseInt(
+                            labelCantDiasAlquiler.getText()
+                    ) , 
+                    Integer.parseInt(
+                            labelCantMinAlquileres.getText()
+                    ), 
+                    labelPreferenciasMarca.getText(), 
+                    Integer.parseInt(
+                            labelPreferenciasModelo.getText()
+                    ), 
+                    extras
+            );
+            labelPreferenciasModelo.setText("");
+            labelCantDiasAlquiler.setText("");
+            labelPreferenciasMarca.setText("");
+            labelCantMinAlquileres.setText("");
+        }
+        
+        
 
-    private void BuscarPlaca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarPlaca1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BuscarPlaca1ActionPerformed
+    }//GEN-LAST:event_ButtonSoliAlquilerActionPerformed
 
     private void ButtonModificarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonModificarVehiculoActionPerformed
         String col = "", mar = "", plc = "";
@@ -1509,7 +1568,8 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_Extra5ActionPerformed
 
     private void ButtonBuscarVehiculo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonBuscarVehiculo1ActionPerformed
-        // TODO add your handling code here:
+        Vehiculo vehiculo = funciones.asignarAlquiler();
+        TextAreaBuscarAlquiler1.setText("Su vehículo es: \n"+vehiculo);
     }//GEN-LAST:event_ButtonBuscarVehiculo1ActionPerformed
 
     private void Extra6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Extra6ActionPerformed
@@ -1523,6 +1583,10 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     private void Extra5AlquiilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Extra5AlquiilerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Extra5AlquiilerActionPerformed
+
+    private void ButtonEnlistarAlquilerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEnlistarAlquilerActionPerformed
+        TextAreaBuscarAlquiler.setText(funciones.getAlquileres()+"");
+    }//GEN-LAST:event_ButtonEnlistarAlquilerActionPerformed
 
 
 
@@ -1563,7 +1627,6 @@ public class JFrameInterfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> BoxCombustible;
-    private javax.swing.JTextField BuscarPlaca1;
     private javax.swing.JButton ButtonBuscarCliente;
     private javax.swing.JButton ButtonBuscarVehiculo1;
     private javax.swing.JButton ButtonBuscarVehiculo2;
@@ -1606,6 +1669,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextArea TextAreaEnlistar;
     private javax.swing.JTextArea TextAreaEnlistarVehiculs;
     private javax.swing.JTextArea TextAreaVehiculos;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1664,5 +1728,7 @@ public class JFrameInterfaz extends javax.swing.JFrame {
     private javax.swing.JTextField labelPlaca;
     private javax.swing.JTextField labelPreferenciasMarca;
     private javax.swing.JTextField labelPreferenciasModelo;
+    private javax.swing.JTextField txbAlquilerCedula;
+    private javax.swing.JTextField txbAlquilerPlaca;
     // End of variables declaration//GEN-END:variables
 }

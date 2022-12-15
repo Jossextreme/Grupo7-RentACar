@@ -34,6 +34,6 @@ public class NodoAlquiler {
 
     @Override
     public String toString() {
-        return "\n{"+dato+"}";
+        return ""+dato;
     }
 }
